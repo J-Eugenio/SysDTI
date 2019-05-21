@@ -1,54 +1,37 @@
 <?php
 
-    require_once '../../model/usuario/Usuario.class.php';
+    require_once 'Usuario.DAO.php';
 
-    class usuario_controller extends usuario_class{
-        protected $tabela = 'tb_usuario';
-        
-        public function findUnic($id){
-            $sql = "SELECT * FROM $this->tabela WHERE id = :id";
-            $exec = DB::prepare($sql);
-            $exec->bindValue(':id', $id, PDO::PARAM_INT);
-            $exec->execute();
-            return $exec->fetch();
-        }
-        public function findAll($id){
-            $sql = "SELECT * FROM $this->tabela ";
-            $exec = DB::prepare($sql);
-            $exec->execute();
-            return $exec->fetchAll();
-        }
-        public function insert(){
-            $sql = "INSERT INTO $this->tabela(login, senha, nome, cpf, email, nivel, acesso)
-             VALUES (:login, :senha:, nome:, :cpf, :email, :nivel, :acesso)";
-            $exec = DB::prepare($sql);
-            $exec->bindParam(':login',$this->login);
-            $exec->bindParam(':senha',$this->nome);
-            $exec->bindParam(':cpf',$this->cpf);
-            $exec->bindParam(':email',$this->email);
-            $exec->bindParam(':nivel',$this->nivel);
-            $exec->bindParam(':acesso',$this->acesso);
-            return $exec->execute();
-        }
-        public function update($id){
-            $sql = "UPDATE $this->tabela SET login = :login, senha = :senha, nome = :nome,
-            cpf = :cpf, email = :email, nivel = :nivel, acesso = :acesso WHERE id = :id";
-            $exec = DB::prepare($sql);
-            $exec->bindParam(':id', $id, PDO::PARAM_INT);
-            $exec->bindParam(':login', $this->login);
-            $exec->bindParam(':senha', $this->senha);
-            $exec->bindParam(':cpf', $this->cpf);
-            $exec->bindParam(':email', $this->email);
-            $exec->bindParam(':nivel', $this->nivel);
-            $exec->bindParam(':acesso', $this->acesso);
-            return $exec->execute();
+    $userClass = new usuario_DAO();
+    $acao = $_POST[''];
+    $id = $_POST['id'];
+    $userClass->setLogin($_POST['login']);
+    $userClass->setSenha($_POST['senha']);
+    $userClass->setCPF($_POST['cpf']);
+    $userClass->setEmail($_POST['email']);
+    $userClass->setNivel($_POST['nivel']);
+    $userClass->setAcesso($_POST['acesso']);
 
+switch($acao){
+    case 'inserir':
+        try{
+            $userClass->insert();
+        }catch(Exception $e){
+            echo $e->getMessage();
         }
-        public function delete($id){
-            $sql = "DELETE FROM $this->tabela WHERE id = :id";
-            $exec = DB::prepare($sql);
-            $exec->bindParam(':id', $id. PDO::PARAM_INT);
-            return $exec->execute();
+    break;
+    case 'delete':
+        try{
+            $userClass->delete($id);
+        }catch(Exception $e){
+            echo $e->getMessage();
         }
-    }
-?>
+    break;
+    case 'update':
+        try{
+            $userClass->update($id);
+        }catch(Exception $e){
+            echo $e->getMessage();
+        }
+    break;
+}
