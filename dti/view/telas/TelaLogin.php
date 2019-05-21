@@ -25,7 +25,9 @@
                   <label for="senha">Password</label>
                   <input type="password" class="form-control" id="senha" name="senha" placeholder="Entre com a senha">
                 </div>
-                
+                <div>
+                  <input type="hidden" id="acao" name="acao" value="autenticar">
+                </div>
                 
         </div>
         <div class="modal-footer">
