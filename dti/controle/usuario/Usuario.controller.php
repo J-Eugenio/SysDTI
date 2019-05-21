@@ -34,4 +34,7 @@ switch($acao){
             echo $e->getMessage();
         }
     break;
+    case 'autenticar':
+        $userClass->autenticar($userClass->getLogin(),$userClass->getSenha());
+    break;
 }
