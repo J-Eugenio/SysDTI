@@ -12,26 +12,24 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"  id="exampleModalLongTitle">Login</h5>
-          
+          <h5 class="modal-title"  id="modal">Login</h5> 
         </div>
 
-        <form>
+        <form method="POST" action="../../controle/usuario/Usuario.controller.php">
         <div class="modal-body">
-                  <div class="form-group">
-                  <label for="exampleInputEmail1">E-mail</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entre com o E-mail">
-                  
+                <div class="form-group">
+                  <label for="login">E-mail</label>
+                  <input type="email" class="form-control" id="login" name="login" aria-describedby="emailHelp" placeholder="Entre com o E-mail"> 
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Entre com a senha">
+                  <label for="senha">Password</label>
+                  <input type="password" class="form-control" id="senha" name="senha" placeholder="Entre com a senha">
                 </div>
                 
                 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Login</button>
+          <button type="submit" class="btn btn-primary">Login</button>
         </div>
         </form>
       </div>

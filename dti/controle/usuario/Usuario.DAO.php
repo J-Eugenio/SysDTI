@@ -70,5 +70,26 @@
                 echo $erro->getMessage();
             }
         }
+        public function autenticar($login, $senha){
+           try{
+                $sql = "SELECT login,senha FROM $this->tabela 
+                WHERE login = $login AND senha = $senha";
+                $exec = DB::prepare($sql);
+                $exec->execute();
+                $users = $exec->fetchAll(PDO::FETCH_ASSOC);
+                if(count($users) <= 0){
+                    echo "Login ou senha Incorretos!";
+                }else{
+                    $user = $users[0];
+                    session_start();
+                    $_SESSION['logged_in'] = true;
+                    $_SESSION['user_id'] = $user['id'];
+                    $_SESSION['user_name'] = $user['name'];        
+                    header('Location: index.php');
+                }
+           }catch(PDOException $erro){
+               echo $erro->getMessage();
+           }
+        }
     }
 ?>
