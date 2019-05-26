@@ -18,8 +18,8 @@
         <form method="POST" action="../../controle/usuario/Usuario.controller.php">
         <div class="modal-body">
                 <div class="form-group">
-                  <label for="login">E-mail</label>
-                  <input type="email" class="form-control" id="login" name="login" aria-describedby="emailHelp" placeholder="Entre com o E-mail"> 
+                  <label for="email">E-mail</label>
+                  <input class="form-control" id="email" name="email" placeholder="Entre com o E-mail"> 
                 </div>
                 <div class="form-group">
                   <label for="senha">Password</label>

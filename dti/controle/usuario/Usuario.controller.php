@@ -1,16 +1,13 @@
 <?php
 
     require_once 'Usuario.DAO.php';
-
+    require_once '../../model/usuario/Usuario.class.php';
     $userClass = new usuario_DAO();
+
     $acao = $_POST['acao'];
     if($acao == "autenticar"){
-        if(empty($userClass->getLogin()) || empty($userClass->getSenha())){
-            echo "MSG ERRO";
-        }else{
-            $userClass->setLogin($_POST['login']);
+            $userClass->setEmail($_POST['email']);
             $userClass->setSenha($_POST['senha']);
-        }
     }else{
         if(empty($userClass->getLogin()) || empty($userClass->getSenha()) ||
            empty($userClass->getCPF())   || empty($userClass->getEmail()) ||
@@ -18,7 +15,7 @@
             echo "Algum dado vazio";
         }else{
             $id = $_POST['id'];
-            $userClass->setLogin($_POST['login']);
+            $userClass->setLogin($_POST['email']);
             $userClass->setSenha($_POST['senha']);
             $userClass->setCPF($_POST['cpf']);
             $userClass->setEmail($_POST['email']);
@@ -50,6 +47,6 @@ switch($acao){
         }
     break;
     case 'autenticar':
-        $userClass->autenticar($userClass->getLogin(),$userClass->getSenha());
+        $userClass->autenticar($userClass->getEmail(), $userClass->getSenha());
     break;
 }

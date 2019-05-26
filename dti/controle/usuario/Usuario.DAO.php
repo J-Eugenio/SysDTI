@@ -3,7 +3,7 @@
     require_once '../../model/usuario/Usuario.class.php';
 
     class usuario_DAO extends usuario_class{
-        protected $tabela = 'tb_usuario';
+        protected $tabela = 'usuario';
         
         public function findUnic($id){
             try{
@@ -29,7 +29,7 @@
         public function insert(){
             try{
                 $sql = "INSERT INTO $this->tabela(login, senha, nome, cpf, email, nivel, acesso)
-             VALUES (:login, :senha:, nome:, :cpf, :email, :nivel, :acesso)";
+             VALUES (:login, :senha, :nome, :cpf, :email, :nivel, :acesso)";
                 $exec = DB::prepare($sql);
                 $exec->bindParam(':login',$this->login);
                 $exec->bindParam(':senha',$this->nome);
@@ -70,11 +70,13 @@
                 echo $erro->getMessage();
             }
         }
-        public function autenticar($login, $senha){
+        public function autenticar($email,$senha){
            try{
-                $sql = "SELECT login,senha FROM $this->tabela 
-                WHERE login = $login AND senha = $senha";
+                $sql = "SELECT id,nome,email,senha FROM $this->tabela 
+                WHERE email = :email AND senha = :senha";
                 $exec = DB::prepare($sql);
+                $exec->bindParam(':email', $email);
+                $exec->bindParam(':senha', $senha);
                 $exec->execute();
                 $users = $exec->fetchAll(PDO::FETCH_ASSOC);
                 if(count($users) <= 0){
@@ -84,11 +86,15 @@
                     session_start();
                     $_SESSION['logged_in'] = true;
                     $_SESSION['user_id'] = $user['id'];
-                    $_SESSION['user_name'] = $user['name'];        
-                    header('Location: index.php');
+                    $_SESSION['user_name'] = $user['nome'];  
+                    echo "SESSION<br>";
+                    print_r($_SESSION);
+                    echo "<br>LOGIN OK!!";
+                    echo "<br>Aqui da um redirect pra pagina principal";
                 }
            }catch(PDOException $erro){
                echo $erro->getMessage();
+               echo "ERRO NO LOGIN ";
            }
         }
     }
