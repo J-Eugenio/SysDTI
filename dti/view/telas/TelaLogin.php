@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -40,7 +39,7 @@
         <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
       </div>
 
-        <p class="mt-5 mb-3 text-muted">&copy; 2019-20??</p>
+        <p class="mt-5 mb-3 text-muted">&copy; 2019-20</p>
 
       
     </form>
