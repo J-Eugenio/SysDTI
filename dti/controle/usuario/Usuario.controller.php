@@ -3,7 +3,7 @@
     require_once 'Usuario.DAO.php';
     require_once '../../model/usuario/Usuario.class.php';
     $userClass = new usuario_DAO();
-
+    
     $acao = $_POST['acao'];
     if($acao == "autenticar"){
             $userClass->setEmail($_POST['email']);

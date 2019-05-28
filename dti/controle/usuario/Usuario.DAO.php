@@ -80,7 +80,7 @@
                 $exec->execute();
                 $users = $exec->fetchAll(PDO::FETCH_ASSOC);
                 if(count($users) <= 0){
-                    echo "<script>alert('Login Incorreto');window.location ='../../view/telas/TelaLogin.php';</script>";
+                    //echo "<script>alert('Login Incorreto');window.location ='../../view/telas/TelaLogin.php';</script>";
                 }else{
                     $user = $users[0];
                     session_start();
