@@ -49,7 +49,7 @@ session_start();
 
   <div class="form-group">
     	 <label for="exampleFormControlSelect1">Nivel</label>
-   		 <select class="form-control" id="nivel">
+   		 <select class="form-control" id="nivel" name="nivel">
       	 <option>Administrador 1</option>
      	 <option>Professor 2</option>
       	 <option>Funcionário</option>
@@ -58,7 +58,7 @@ session_start();
 
   <div class="form-group">
     	 <label for="exampleFormControlSelect1">Acesso</label>
-   	<select class="form-control" id="acesso">
+   	<select class="form-control" id="acesso" name="acesso">
       	 <option>Administrador 1</option>
      	 <option>Professor 2</option>
       	 <option>Funcionário</option>
