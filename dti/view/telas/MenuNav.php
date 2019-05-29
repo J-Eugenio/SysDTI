@@ -13,7 +13,7 @@
             <li class="nav-item active" id="items-li">
               <a class="nav-link" id="items-a">Cadastro<span class="sr-only">(current)</span></a>
                 <ul class="sub-menu">
-                  <li class="sub-menu-li"><a href="#">Funcionário</a></li>
+                  <li class="sub-menu-li"><a href="TelaCadastroUsuario.php">Usuário</a></li>
                   <li class="sub-menu-li"><a href="#">Professor</a></li>
                   <li class="sub-menu-li"><a href="#">Equipamento</a></li>
                   <li class="sub-menu-li"><a href="#">Campus</a></li>
@@ -25,6 +25,15 @@
                   <li class="sub-menu-li"><a href="#">Notificação</a></li>
                 </ul>
             </li>
+            <li class="nav-item active"  id="items-li">
+              <a class="nav-link" href="#" id="items-a">Relatório<span class="sr-only">(current)</span></a>
+                 <ul class="sub-menu">
+                  <li class="sub-menu-li"><a href="#">Por campus</a></li>
+                  <li class="sub-menu-li"><a href="#">Geral</a></li>
+                  
+                </ul>
+            </li>
+            
             <li class="nav-item active"  id="items-li">
               <a class="nav-link" href="" id="items-a">Sair<i class="fas fa-sign-out-alt"></i></a>
             </li>
