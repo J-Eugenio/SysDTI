@@ -9,25 +9,24 @@
             $userClass->setEmail($_POST['email']);
             $userClass->setSenha($_POST['senha']);
     }else{
-        if(empty($userClass->getLogin()) || empty($userClass->getSenha()) ||
-           empty($userClass->getCPF())   || empty($userClass->getEmail()) ||
-           empty($userClass->getAcesso())|| empty($userClass->getNivel())){
+        if(!empty($userClass->getLogin()) || !empty($userClass->getSenha()) ||
+           !empty($userClass->getCPF())   || !empty($userClass->getEmail()) ||
+           !empty($userClass->getAcesso())|| !empty($userClass->getNivel())){
             echo "Algum dado vazio";
         }else{
-            $id = $_POST['id'];
-            $userClass->setLogin($_POST['email']);
+            $userClass->setLogin($_POST['login']);
             $userClass->setSenha($_POST['senha']);
+            $userClass->setNome($_POST['nome']);
             $userClass->setCPF($_POST['cpf']);
             $userClass->setEmail($_POST['email']);
             $userClass->setNivel($_POST['nivel']);
-            $userClass->setAcesso($_POST['acesso']);
         }
     }
 
 switch($acao){
     case 'inserir':
         try{
-            $userClass->insert();
+            $userClass->insert($userClass->getLogin(),$userClass->getSenha(),$userClass->getNome(),$userClass->getCPF(),$userClass->getEmail(),$userClass->getNivel(),$userClass->getNivel());
         }catch(Exception $e){
             echo $e->getMessage();
         }
