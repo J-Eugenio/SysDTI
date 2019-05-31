@@ -22,7 +22,7 @@
   <div class="container">
     <form method="POST" action="../../controle/usuario/Usuario.controller.php">
       <div class="form-group">
-        <input type="hidden" name="id" value="<?php echo isset($usuario_selec) ? $usuario_selec['id'] : '' ?>" />
+        <input type="hidden" name="id" value="" />
         <label>Login: </label>
         <input type="text" name="login" class="form-control" placeholder="Informe o login..">
       </div>
