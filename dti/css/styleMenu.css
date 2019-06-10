@@ -124,7 +124,7 @@ body{
 #menu-opcoes #items-li:hover .sub-menu{
      visibility: visible;
      display: block;
-     transform: translateY(15px);
+     transform: translateY(1px);
 }
 /* --- FIM SUB MENU --- */
 

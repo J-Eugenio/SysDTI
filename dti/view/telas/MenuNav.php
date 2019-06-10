@@ -15,8 +15,8 @@
                 <ul class="sub-menu">
                   <li class="sub-menu-li"><a href="TelaCadastroUsuario.php">Usuário</a></li>
                   <li class="sub-menu-li"><a href="#">Professor</a></li>
-                  <li class="sub-menu-li"><a href="#">Equipamento</a></li>
-                  <li class="sub-menu-li"><a href="#">Campus</a></li>
+                  <li class="sub-menu-li"><a href="TelaCadastroEquipamento.php">Equipamento</a></li>
+                  <li class="sub-menu-li"><a href="TelaCadastroCampus.php">Campus</a></li>
                 </ul>
             </li>
             <li class="nav-item active"  id="items-li">
