@@ -25,11 +25,30 @@
         <label>Nome: </label>
         <input type="text" name="nome" class="form-control" placeholder="Informe o nome do campus.." />
       </div>
+
+      <div class="form-group">
+        <label>CNPJ:  </label>
+        <input type="text" name="cnpj" class="form-control" placeholder="Informe o CNPJ do campus.." />
+      </div>
       
+      <label> Endereço  </label>
+
+      <div class="form-group">
+        <label>Rua:  </label>
+        <input type="text" name="rua" class="form-control" placeholder="Informe a rua.." />
+      </div>
+
+       <div class="form-group">
+        <label>Número:  </label>
+        <input type="text" name="numero" class="form-control" placeholder="Informe a rua.." />
+      </div>  
+
+
 
       <div class="form-group">
         <input type="hidden" name="acao" class="form-control" value="inserir"/>
       </div>
+
       <button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Salvar</button>
       <button type="reset" class="btn btn-warning"><span class="fa fa-close"></span> Limpar</button>
     </form>
