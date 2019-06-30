@@ -89,8 +89,6 @@
                     $_SESSION['logged_in'] = true;
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['user_name'] = $user['nome'];  
-                    echo "SESSION<br>";
-                    echo "<br>LOGIN OK!!";
                     echo "<script>alert('Login aprovado');window.location ='../../view/telas/TelaHome.php';</script>";
                 
                 }
