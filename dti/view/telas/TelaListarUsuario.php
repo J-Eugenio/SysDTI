@@ -1,5 +1,6 @@
 <?php 
 include_once '../../config/config.php';
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +28,8 @@ while($resultadoLista = $resultado->fetch(PDO::FETCH_ASSOC)){
    // echo  $resultadoLista['login'] "<br>";
    // echo  $resultadoLista['nome'] "<br>";
    // echo  $resultadoLista['email'] "<br>";   
+   echo "<a href='TelaEditarUsuario.php?id=" .$resultadoLista['id']."'>Editar</a><br>"
+
    ?>  
 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="50%">
                   <thead>
@@ -42,12 +45,12 @@ while($resultadoLista = $resultado->fetch(PDO::FETCH_ASSOC)){
                       <tr>
                         <th> <?php echo $resultadoLista['nome'] ?> </th>
                         <th> <?php echo $resultadoLista['login'] ?> </th>
-						<th> <?php echo $resultadoLista['email'] ?> </th>
+					            	<th> <?php echo $resultadoLista['email'] ?> </th>
                         <th class="text-center">
-                          <a href=" ?>"
+                          <a href=""
                             class="btn btn-sm btn-danger excluir-usuario">
                             <span class="fa fa-trash"></span> Excluir</a>
-                          <a href=" "
+                          <a href=""
                             class="btn btn-sm btn-primary">
                             <span class="fa fa-cogs"></span> Atualizar</a>
                         </th>
