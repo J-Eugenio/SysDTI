@@ -54,9 +54,10 @@
       </div>
       <button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Salvar</button>
       <button type="reset" class="btn btn-warning"><span class="fa fa-close"></span> Limpar</button>
+      
+      
     </form>
   </div>
-
 </body>
 
 </html>

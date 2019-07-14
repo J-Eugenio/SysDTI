@@ -30,7 +30,7 @@ $resultado->execute();
                     <tr>
                       <th>Nome do Usuário</th>
                       <th>Login</th>
-					  <th>E-mail</th>
+					               <th>E-mail</th>
                       <th class="text-center">Ações</th>
                     </tr>
                   </thead>
@@ -51,7 +51,7 @@ while($resultadoLista = $resultado->fetch(PDO::FETCH_ASSOC)){
       <th class="text-center">
       <a href="" class="btn btn-sm btn-danger excluir-usuario">
       <span class="fa fa-trash"></span> Excluir</a>
-      <a href="" class="btn btn-sm btn-primary">
+      <a href="TelaEditarUsuario.php?id= <?php echo $resultadoLista['id'] ?>" class="btn btn-sm btn-primary" >
       <span class="fa fa-cogs"></span> Atualizar</a>
       </th>
       </tr>
