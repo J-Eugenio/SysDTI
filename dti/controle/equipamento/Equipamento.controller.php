@@ -10,11 +10,13 @@
     $equipClass->setQtd($_POST['quantidade']);
     $equipClass->setTipo($_POST['tipo']);
     $equipClass->setDescricao($_POST['descricao']);
+    $equipClass->setCampus($_POST['campus']);
+    $equipClass->setVidaUtil($_POST['vidaUtil']);
 
 switch($acao){
     case 'inserir':
         try{
-            $equipClass->insert($equipClass->getNome(),$equipClass->getQtd(),$equipClass->getTipo(),$equipClass->getDescricao(),$equipClass->getVidaUtil());
+            $equipClass->insert($equipClass->getIdentificador(),$equipClass->getNome(),$equipClass->getQtd(),$equipClass->getTipo(), $equipClass->getDescricao(),$equipClass->getCampus(), $equipClass->getVidaUtil());
         }catch(Exception $e){
             echo $e->getMessage();
         }
@@ -28,7 +30,7 @@ switch($acao){
     break;
     case 'update':
         try{
-            $equipClass->update($id);
+            $equipClass->update($equipClass->getIdentificador(),$equipClass->getNome(),$equipClass->getQtd(),$equipClass->getTipo(), $equipClass->getDescricao(),$equipClass->getCampus(), $equipClass->getVidaUtil());;
         }catch(Exception $e){
             echo $e->getMessage();
         }

@@ -8,6 +8,7 @@
         private $quantidade;
         private $tipo;
         private $descricao;
+        private $campus;
         private $vidaUtil;
 
         //set's
@@ -16,6 +17,7 @@
         public function setQtd($q){$this->quantidade = $q;}
         public function setTipo($t){$this->tipo = $t;}
         public function setDescricao($descricao){$this->descricao = $descricao;}
+        public function setCampus($campus){$this->campus = $campus;}
         public function setVidaUtil($v){$this->vidaUtil = $v;}
         //get's
         public function getIdentificador(){return $this->identificador;}
@@ -23,6 +25,7 @@
         public function getQtd(){return $this->quantidade;}
         public function getTipo(){return $this->tipo;}
         public function getDescricao(){return $this->descricao;}
+        public function getCampus(){return $this->campus;}
         public function getVidaUtil(){return $this->vidaUtil;}
     }
 ?>

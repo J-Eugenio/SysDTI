@@ -26,16 +26,19 @@
                 echo $erro->getMessage();
             }
         }
-        public function insert($nome,$quantidade,$tipo,$descricao,$vidaUtil){
+        public function insert($identificador,$nome,$quantidade,$tipo,$descricao,$campus,$vidaUtil){
             try{
-                $sql = "INSERT INTO $this->tabela(nome, quantidade, tipo, descricao, vidaUtil)
-             VALUES (:nome, :quantidade, :tipo, :descricao, :vidaUtil)";
+                $sql = "INSERT INTO $this->tabela(identificador, nome, quantidade, tipo, descricao, campus ,vidaUtil)
+             VALUES (:identificador, :nome, :quantidade, :tipo, :descricao, :campus, :vidaUtil)";
                 $exec = DB::prepare($sql);
+                $exec->bindParam(':identificador',$identificador);
                 $exec->bindParam(':nome',$nome);
                 $exec->bindParam(':quantidade',$quantidade);
                 $exec->bindParam(':tipo',$tipo);
                 $exec->bindParam(':descricao',$descricao);
+                $exec->bindParam(':campus',$campus);
                 $exec->bindParam(':vidaUtil',$vidaUtil);
+                echo "<script>alert('Equipamento cadastrado com sucesso');window.location ='../../view/telas/TelaCadastroEquipamento.php';</script>";
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo $erro->getMessage();
@@ -43,14 +46,22 @@
         }
         public function update($id){
             try{
-                $sql = "UPDATE $this->tabela SET nome = :nome, quantidade = :quantidade, tipo = :tipo,
-                descricao = :descricao, vidaUtil = :vidaUtil WHERE id = :id";
+                $sql = "UPDATE $this->tabela SET identificador = :identificador ,nome = :nome, quantidade = :quantidade, tipo = :tipo,
+                descricao = :descricao, campus = :campus , vidaUtil = :vidaUtil WHERE id = :id";
+
                 $exec = DB::prepare($sql);
                 $exec->bindParam(':id', $id, PDO::PARAM_INT);
+                $exec->bindParam(':nome', $this->identificador);
                 $exec->bindParam(':nome', $this->nome);
                 $exec->bindParam(':quantidade', $this->quantidade);
                 $exec->bindParam(':tipo',$this->tipo);
                 $exec->bindParam(':descricao', $this->descricao);
+                $exec->bindParam(':campus', $this->campus);
+                $exec->bindParam(':vidaUtil', $this->vidaUtil);
+
+                echo "<script>alert('Equipamento Editado com sucesso!!');window.location ='../../view/telas/TelaListarEquipamento.php';</script>";
+
+
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo $erro->getMessage();

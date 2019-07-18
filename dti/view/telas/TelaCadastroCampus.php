@@ -20,7 +20,7 @@
   <?php include_once 'MenuNav.php'; ?>
 
   <div class="container">
-    <form method="POST" action="../../controle/usuario/Usuario.controller.php">
+    <form method="POST" action="../../controle/campus/Campus.controller.php">
       <div class="form-group">
         <label>Nome: </label>
         <input type="text" name="nome" class="form-control" placeholder="Informe o nome do campus.." />
@@ -30,8 +30,11 @@
         <label>CNPJ:  </label>
         <input type="text" name="cnpj" class="form-control" placeholder="Informe o CNPJ do campus.." />
       </div>
-      
-      <label> Endereço  </label>
+
+      <div class="form-group">
+        <label>Endereço:  </label>
+        <input type="text" name="endereco" class="form-control" placeholder="Informe o endereço do campus.." />
+      </div>
 
       <div class="form-group">
         <label>Rua:  </label>
@@ -51,6 +54,7 @@
 
       <button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Salvar</button>
       <button type="reset" class="btn btn-warning"><span class="fa fa-close"></span> Limpar</button>
+      <a href="TelaListarCampus.php" class="btn btn-info" >Listar</a>
     </form>
   </div>
 

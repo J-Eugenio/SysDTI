@@ -26,30 +26,35 @@
                 echo $erro->getMessage();
             }
         }
-        public function insert($nome,$cnpj,$rua,$numero){
+        public function insert($nome,$cnpj,$endereco,$rua,$numero){
             try{
-                $sql = "INSERT INTO $this->tabela(nome, cnpj, rua, numero)
-             VALUES (:nome, :cnpj, :rua, :numero)";
+                $sql = "INSERT INTO $this->tabela(nome, cnpj, endereco , rua, numero)
+             VALUES (:nome, :endereco , :cnpj, :rua, :numero)";
                 $exec = DB::prepare($sql);
                 $exec->bindParam(':nome',$nome);
                 $exec->bindParam(':cnpj',$cnpj);
+                $exec->bindParam(':endereco',$endereco);
                 $exec->bindParam(':rua',$rua);
                 $exec->bindParam(':numero',$numero);
+                echo "<script>alert('Campus Cadastrado com sucesso');window.location ='../../view/telas/TelaCadastroCampus.php';</script>";
                 return $exec->execute();
+              
             }catch(PDOException $erro){
                 echo $erro->getMessage();
             }
         }
         public function update($id){
             try{
-                $sql = "UPDATE $this->tabela SET nome = :nome, cnpj = :cnpj, rua = :rua,
+                $sql = "UPDATE $this->tabela SET nome = :nome, cnpj = :cnpj, endereco = :endereco, rua = :rua,
                 numero = :numero WHERE id = :id";
                 $exec = DB::prepare($sql);
                 $exec->bindParam(':id', $id, PDO::PARAM_INT);
                 $exec->bindParam(':nome', $this->nome);
                 $exec->bindParam(':cnpj', $this->cnpj);
+                $exec->bindParam(':endereco', $this->endereco);
                 $exec->bindParam(':rua',$this->rua);
                 $exec->bindParam(':numero', $this->numero);
+                echo "<script>alert('Campus Editado com Sucesso');window.location ='../../view/telas/TelaListarCampus.php';</script>";
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo $erro->getMessage();

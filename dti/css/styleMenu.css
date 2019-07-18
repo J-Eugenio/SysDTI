@@ -61,12 +61,12 @@ body{
 }
 
 .container{
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 .container-table{
     background: white;
-    padding: 20px;
+    padding: 10px;
 }
 
 #nav-menu .collapse:nth-child(2){

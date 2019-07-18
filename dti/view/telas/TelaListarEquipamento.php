@@ -13,18 +13,13 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script>
-      function remover(id){
-      
-      }
-    </script>
     <title>Listar Usuário</title>
 </head>
 <body>
 <?php include_once 'MenuNav.php';  ?>
-<h1>LISTAGEM DE USUÁRIO</h1>
+<h1>LISTAGEM DE EQUIPAMENTO</h1>
 <?php 
-$resultado = "SELECT * FROM usuario ORDER BY id ASC";
+$resultado = "SELECT * FROM equipamento ORDER BY id ASC";
 
 $resultado = $conecta->prepare($resultado);
 
@@ -34,9 +29,10 @@ $resultado->execute();
 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="50%">
                   <thead>
                     <tr>
-                      <th>Nome do Usuário</th>
-                      <th>Login</th>
-					               <th>E-mail</th>
+                      <th>Identificador</th>
+                      <th>Nome</th>
+                      <th>Quantidade</th>
+                      <th>Campus</th>
                       <th class="text-center">Ações</th>
                     </tr>
                   </thead>
@@ -47,17 +43,18 @@ while($resultadoLista = $resultado->fetch(PDO::FETCH_ASSOC)){
    // echo  $resultadoLista['login'] "<br>";
    // echo  $resultadoLista['nome'] "<br>";
    // echo  $resultadoLista['email'] "<br>";   
-   echo "<a href='TelaEditarUsuario.php?id=" .$resultadoLista['id']."'></a><br>"
+   //echo "<a href='TelaEditarUsuario.php?id=" .$resultadoLista['id']."'></a><br>"
 
    ?>  
  <tr>
-      <th> <?php echo $resultadoLista['nome'] ?> </th>
-      <th> <?php echo $resultadoLista['login'] ?> </th>
-			<th> <?php echo $resultadoLista['email'] ?> </th>
+      <th> <?php echo $resultadoLista['identificador'] ?> </th>
+      <th> <?php echo $resultadoLista['Nome'] ?> </th>
+      <th> <?php echo $resultadoLista['quantidade'] ?> </th>
+      <th> <?php echo $resultadoLista['campus'] ?> </th>
       <th class="text-center">
       <a href="" class="btn btn-sm btn-danger excluir-usuario" onClick="remover()">
       <span class="fa fa-trash"></span> Excluir</a>
-      <a href="TelaEditarUsuario.php?id= <?php echo $resultadoLista['id'] ?>" class="btn btn-sm btn-primary" >
+      <a href="TelaEditarEquipamento.php?id= <?php echo $resultadoLista['id'] ?>" class="btn btn-sm btn-primary" >
       <span class="fa fa-cogs"></span> Atualizar</a>
       </th>
       </tr>

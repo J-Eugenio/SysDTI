@@ -42,7 +42,7 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav" id="menu-logado">
              <li class="nav-item">
-                <span><i class= "fas fa-user"></i><?php echo $_SESSION['user_name']; ?> </span>
+                <span><i class= "fas fa-user"></i>Bem-Vindo/<?php echo $_SESSION['user_name']; ?> </span>
              </li>
         </ul>
     </div>

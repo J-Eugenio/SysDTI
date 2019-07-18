@@ -1,6 +1,9 @@
 <?php if (!isset($_SESSION)) {
   session_start();
+
+ $id =  filter_input(INPUT_GET,'id', FILTER_SANITIZE_NUMBER_INT);
 }
+include_once '../../config/config.php';
 
 ?>
 <!DOCTYPE html>
@@ -17,40 +20,49 @@
 
 <body>
 
-  <?php include_once 'MenuNav.php'; ?>
+<?php
+   include_once 'MenuNav.php'; 
+  //sql de retornar
+   $resultaQuery = "SELECT * FROM equipamento where id= $id";
+
+  //selecionar os registros
+  $resulta = $conecta->prepare($resultaQuery);
+  $resulta->execute();
+  $resultaEditar = $resulta->fetch(PDO::FETCH_ASSOC);
+  ?>
 
   <div class="container">
     <form method="POST" action="../../controle/equipamento/Equipamento.controller.php">
   <div class="form-group">
         <input type="hidden" name="id" value="" />
         <label>Identificador: </label>
-        <input type="text" name="identificador" class="form-control" placeholder="Informe o identificador..">
+        <input type="text" name="identificador" class="form-control" placeholder="Informe o identificador.." value="<?php if(isset($resultaEditar['identificador'])) { echo $resultaEditar['identificador']; } ?>">
   </div>
   <div class="form-group">
         <label>Nome: </label>
-        <input type="text" name="nome" class="form-control" placeholder="Informe o nome.."/>
+        <input type="text" name="nome" class="form-control" placeholder="Informe o nome.." value="<?php if(isset($resultaEditar['Nome'])) { echo $resultaEditar['Nome']; } ?>"/>
   </div>
   <div class="form-group">
         <label>Quantidade: </label>
-        <input type="number" name="quantidade" class="form-control" placeholder="Informe a quantidade.." />
+        <input type="number" name="quantidade" class="form-control" placeholder="Informe a quantidade.." value="<?php if(isset($resultaEditar['quantidade'])) { echo $resultaEditar['quantidade']; } ?>" />
   </div>
   <div class="form-group">
         <label>Tipo: </label>
-        <input type="text" name="tipo" class="form-control" placeholder="Informe um tipo.."/>
+        <input type="text" name="tipo" class="form-control" placeholder="Informe um tipo.." value="<?php if(isset($resultaEditar['tipo'])) { echo $resultaEditar['tipo']; } ?>"/>
   </div>
   <div class="form-group">
       <label>Descrição:</label>
-      <textarea class="form-control" name="descricao" id="descricao" rows="3" placeholder="Informe a descrição.."></textarea>
+      <input type="text" name="descricao" class="form-control" placeholder="Informe um tipo.." value="<?php if(isset($resultaEditar['descricao'])) { echo $resultaEditar['descricao']; } ?>"/>
   </div>
 
   <div class="form-group">
       <label>Campus:</label>
-      <textarea class="form-control" name="campus" id="campus" rows="3" placeholder="Informe o campus.."></textarea>
+      <input type="text" name="campus" class="form-control" placeholder="Informe um tipo.." value="<?php if(isset($resultaEditar['campus'])) { echo $resultaEditar['campus']; } ?>"/>
   </div>
 
   <div class="form-group">
         <label>Vida Útil: </label>
-        <select class="form-control" name="vidaUtil" id="nivel">
+        <select class="form-control" name="vidaUtil" id="vidaUtil" value="<?php if(isset($resultaEditar['vidaUtil'])) { echo $resultaEditar['vidaUtil']; } ?>">
           <option value="Novo">Novo</option>
           <option value="Restaurado">Restaurado</option>
           <option value="Descartado">Descartado</option>
@@ -59,7 +71,7 @@
       </div>
 
       <div class="form-group">
-        <input type="hidden" name="acao" class="form-control" value="inserir"/>
+        <input type="hidden" name="acao" class="form-control" value="update"/>
       </div>
       <button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Salvar</button>
       <button type="reset" class="btn btn-warning"><span class="fa fa-close"></span> Limpar</button>

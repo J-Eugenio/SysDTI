@@ -1,6 +1,6 @@
 <?php 
 include_once '../../config/config.php';
-include_once '../../controle/usuario/Usuario.DAO.php';
+include_once '../../controle/campus/Campus.DAO.php';
 
 session_start();
 ?>
@@ -22,9 +22,9 @@ session_start();
 </head>
 <body>
 <?php include_once 'MenuNav.php';  ?>
-<h1>LISTAGEM DE USUÁRIO</h1>
+<h1>LISTAGEM DE CAMPUS</h1>
 <?php 
-$resultado = "SELECT * FROM usuario ORDER BY id ASC";
+$resultado = "SELECT * FROM campus ORDER BY id ASC";
 
 $resultado = $conecta->prepare($resultado);
 
@@ -34,9 +34,8 @@ $resultado->execute();
 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="50%">
                   <thead>
                     <tr>
-                      <th>Nome do Usuário</th>
-                      <th>Login</th>
-					               <th>E-mail</th>
+                      <th>Nome do Campus</th>
+                      <th>Endereço</th>
                       <th class="text-center">Ações</th>
                     </tr>
                   </thead>
@@ -47,17 +46,15 @@ while($resultadoLista = $resultado->fetch(PDO::FETCH_ASSOC)){
    // echo  $resultadoLista['login'] "<br>";
    // echo  $resultadoLista['nome'] "<br>";
    // echo  $resultadoLista['email'] "<br>";   
-   echo "<a href='TelaEditarUsuario.php?id=" .$resultadoLista['id']."'></a><br>"
 
    ?>  
  <tr>
       <th> <?php echo $resultadoLista['nome'] ?> </th>
-      <th> <?php echo $resultadoLista['login'] ?> </th>
-			<th> <?php echo $resultadoLista['email'] ?> </th>
+      <th> <?php echo $resultadoLista['endereco'] ?> </th>
       <th class="text-center">
       <a href="" class="btn btn-sm btn-danger excluir-usuario" onClick="remover()">
       <span class="fa fa-trash"></span> Excluir</a>
-      <a href="TelaEditarUsuario.php?id= <?php echo $resultadoLista['id'] ?>" class="btn btn-sm btn-primary" >
+      <a href="TelaEditarCampus.php?id= <?php echo $resultadoLista['id'] ?>" class="btn btn-sm btn-primary" >
       <span class="fa fa-cogs"></span> Atualizar</a>
       </th>
       </tr>

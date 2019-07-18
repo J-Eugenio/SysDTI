@@ -1,4 +1,6 @@
-<?php if (!isset($_SESSION)) {
+<?php 
+
+if (!isset($_SESSION)) {
   session_start();
 }
 
@@ -45,8 +47,8 @@
       <div class="form-group">
         <label>Nível: </label>
         <select class="form-control" name="nivel" id="nivel">
-          <option value="1">Administrador / Funcionário</option>
-          <option value="2">Professor</option>
+          <option value="Administrador / Funcionário">Administrador / Funcionário</option>
+          <option value="Professor">Professor</option>
         </select>
       </div>
       <div class="form-group">
@@ -54,8 +56,7 @@
       </div>
       <button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Salvar</button>
       <button type="reset" class="btn btn-warning"><span class="fa fa-close"></span> Limpar</button>
-      
-      
+      <a href="TelaListarUsuario.php" class="btn btn-info" >Listar</a>
     </form>
   </div>
 </body>
