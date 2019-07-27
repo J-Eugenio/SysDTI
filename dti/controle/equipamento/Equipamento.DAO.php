@@ -50,19 +50,16 @@
                 descricao = :descricao, campus = :campus , vidaUtil = :vidaUtil WHERE id = :id";
 
                 $exec = DB::prepare($sql);
-                $exec->bindParam(':id', $id, PDO::PARAM_INT);
-                $exec->bindParam(':nome', $this->identificador);
-                $exec->bindParam(':nome', $this->nome);
-                $exec->bindParam(':quantidade', $this->quantidade);
-                $exec->bindParam(':tipo',$this->tipo);
-                $exec->bindParam(':descricao', $this->descricao);
-                $exec->bindParam(':campus', $this->campus);
-                $exec->bindParam(':vidaUtil', $this->vidaUtil);
-
-                echo "<script>alert('Equipamento Editado com sucesso!!');window.location ='../../view/telas/TelaListarEquipamento.php';</script>";
-
-
+                $exec->bindValue(':id', $id, PDO::PARAM_INT);
+                $exec->bindValue(':identificador', $this->getIdentificador());
+                $exec->bindValue(':nome', $this->getNome());
+                $exec->bindValue(':quantidade', $this->getQtd());
+                $exec->bindValue(':tipo',$this->getTipo());
+                $exec->bindValue(':descricao', $this->getDescricao());
+                $exec->bindValue(':campus', $this->getCampus());
+                $exec->bindValue(':vidaUtil', $this->getVidaUtil());
                 return $exec->execute();
+                echo "<script>alert('Equipamento Editado com sucesso!!');window.location ='../../view/telas/TelaListarEquipamento.php';</script>";
             }catch(PDOException $erro){
                 echo $erro->getMessage();
             }
@@ -72,7 +69,7 @@
             try{
                 $sql = "DELETE FROM $this->tabela WHERE id = :id";
                 $exec = DB::prepare($sql);
-                $exec->bindParam(':id', $id. PDO::PARAM_INT);
+                $exec->bindParam(':id', $id, PDO::PARAM_INT);
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo $erro->getMessage();

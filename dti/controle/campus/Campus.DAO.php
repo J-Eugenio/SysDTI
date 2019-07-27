@@ -48,13 +48,13 @@
                 $sql = "UPDATE $this->tabela SET nome = :nome, cnpj = :cnpj, endereco = :endereco, rua = :rua,
                 numero = :numero WHERE id = :id";
                 $exec = DB::prepare($sql);
-                $exec->bindParam(':id', $id, PDO::PARAM_INT);
-                $exec->bindParam(':nome', $this->nome);
-                $exec->bindParam(':cnpj', $this->cnpj);
-                $exec->bindParam(':endereco', $this->endereco);
-                $exec->bindParam(':rua',$this->rua);
-                $exec->bindParam(':numero', $this->numero);
-                echo "<script>alert('Campus Editado com Sucesso');window.location ='../../view/telas/TelaListarCampus.php';</script>";
+                $exec->bindValue(':id', $id, PDO::PARAM_INT);
+                $exec->bindValue(':nome', $this->getNome());
+                $exec->bindValue(':cnpj', $this->getCNPJ());
+                $exec->bindValue(':endereco', $this->getEndereco());
+                $exec->bindValue(':rua',$this->getRua());
+                $exec->bindValue(':numero', $this->getNumero());
+               // echo "<script>alert('Campus Editado com Sucesso');window.location ='../../view/telas/TelaListarCampus.php';</script>";
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo $erro->getMessage();
@@ -65,7 +65,7 @@
             try{
                 $sql = "DELETE FROM $this->tabela WHERE id = :id";
                 $exec = DB::prepare($sql);
-                $exec->bindParam(':id', $id. PDO::PARAM_INT);
+                $exec->bindValue(':id', $id, PDO::PARAM_INT);
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo $erro->getMessage();

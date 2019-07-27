@@ -51,7 +51,7 @@ include_once '../../config/config.php';
       </div>
       <div class="form-group">
         <label>CPF: </label>
-        <input type="text" name="cpf" class="form-control" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="Digite o CPF no formato nnn.nnn.nnn-nn" value="<?php if(isset($resultaEditar['cpf'])) { echo $resultaEditar['cpf']; } ?>"  />
+        <input type="text" name="cpf" class="form-control"  placeholder="Digite o CPF no formato nnn.nnn.nnn-nn" value="<?php if(isset($resultaEditar['cpf'])) { echo $resultaEditar['cpf']; } ?>"  />
       </div>
       <div class="form-group">
         <label>Nível: </label>
@@ -62,6 +62,7 @@ include_once '../../config/config.php';
       </div>
       <div class="form-group">
         <input type="hidden" name="acao" class="form-control" value="update"/>
+        <input type="hidden" name="id" class="form-control" value="<?php echo $id?>"/>
       </div>
       <button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Salvar</button>
       <button type="reset" class="btn btn-warning"><span class="fa fa-close"></span> Limpar</button>

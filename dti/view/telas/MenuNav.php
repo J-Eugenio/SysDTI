@@ -14,7 +14,6 @@
               <a class="nav-link" id="items-a">Cadastro<span class="sr-only">(current)</span></a>
                 <ul class="sub-menu">
                   <li class="sub-menu-li"><a href="TelaCadastroUsuario.php">Usuário</a></li>
-                  <li class="sub-menu-li"><a href="#">Professor</a></li>
                   <li class="sub-menu-li"><a href="TelaCadastroEquipamento.php">Equipamento</a></li>
                   <li class="sub-menu-li"><a href="TelaCadastroCampus.php">Campus</a></li>
                 </ul>

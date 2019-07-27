@@ -52,9 +52,9 @@ while($resultadoLista = $resultado->fetch(PDO::FETCH_ASSOC)){
       <th> <?php echo $resultadoLista['quantidade'] ?> </th>
       <th> <?php echo $resultadoLista['campus'] ?> </th>
       <th class="text-center">
-      <a href="" class="btn btn-sm btn-danger excluir-usuario" onClick="remover()">
+      <a href="../../controle/equipamento/Equipamento.controller.php?acao=delete&id=<?php echo $resultadoLista['id'] ?>" class="btn btn-sm btn-danger excluir-usuario" onClick="remover()">
       <span class="fa fa-trash"></span> Excluir</a>
-      <a href="TelaEditarEquipamento.php?id= <?php echo $resultadoLista['id'] ?>" class="btn btn-sm btn-primary" >
+      <a href="TelaEditarEquipamento.php?id=<?php echo $resultadoLista['id'] ?>" class="btn btn-sm btn-primary" >
       <span class="fa fa-cogs"></span> Atualizar</a>
       </th>
       </tr>

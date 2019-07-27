@@ -3,17 +3,26 @@
     require_once 'Usuario.DAO.php';
     require_once '../../model/usuario/Usuario.class.php';
     $userClass = new usuario_DAO();
-    
-    $acao = $_POST['acao'];
+    switch($_SERVER['REQUEST_METHOD'])
+    {
+        case 'GET':  $acao = $_GET['acao']; break;
+        case 'POST': $acao = $_POST['acao']; break;
+    }
+    if($acao == "delete"){
+        $userClass->setId($_GET['id']);
+    }
     if($acao == "autenticar"){
             $userClass->setEmail($_POST['email']);
             $userClass->setSenha($_POST['senha']);
-    }else{
+    }else if($acao != "delete"){
         if(!empty($userClass->getLogin()) || !empty($userClass->getSenha()) ||
            !empty($userClass->getCPF())   || !empty($userClass->getEmail()) ||
            !empty($userClass->getAcesso())|| !empty($userClass->getNivel())){
             echo "Algum dado vazio";
         }else{
+            if($acao == "update"){
+                $userClass->setId($_POST['id']);
+            }
             $userClass->setLogin($_POST['login']);
             $userClass->setSenha($_POST['senha']);
             $userClass->setNome($_POST['nome']);
@@ -33,14 +42,14 @@ switch($acao){
     break;
     case 'delete':
         try{
-            $userClass->delete($id);
+            $userClass->delete($userClass->getId());
         }catch(Exception $e){
             echo $e->getMessage();
         }
     break;
     case 'update':
         try{
-            $userClass->update($id);
+            $userClass->update($userClass->getId());
         }catch(Exception $e){
             echo $e->getMessage();
         }

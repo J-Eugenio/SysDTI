@@ -47,16 +47,16 @@
                 $sql = "UPDATE $this->tabela SET login = :login, senha = :senha, nome = :nome,
                 cpf = :cpf, email = :email, nivel = :nivel WHERE id = :id";
                 $exec = DB::prepare($sql);
-                $exec->bindParam(':id', $id, PDO::PARAM_INT);
-                $exec->bindParam(':login', $this->login);
-                $exec->bindParam(':senha', $this->senha);
-                $exec->bindParam(':nome',$this->nome);
-                $exec->bindParam(':cpf', $this->cpf);
-                $exec->bindParam(':email', $this->email);
-                $exec->bindParam(':nivel', $this->nivel);
+                $exec->bindValue(':id', $id, PDO::PARAM_INT);
+                $exec->bindValue(':login', $this->getLogin());
+                $exec->bindValue(':senha', $this->getSenha());
+                $exec->bindValue(':nome',$this->getNome());
+                $exec->bindValue(':cpf', $this->getCPF());
+                $exec->bindValue(':email', $this->getEmail());
+                $exec->bindValue(':nivel', $this->getNivel());
                 return $exec->execute();
             }catch(PDOException $erro){
-                echo $erro->getMessage();
+                echo "Erro".$erro->getMessage();
             }
 
         }
@@ -64,7 +64,7 @@
             try{
                 $sql = "DELETE FROM $this->tabela WHERE id = :id";
                 $exec = DB::prepare($sql);
-                $exec->bindParam(':id', $id. PDO::PARAM_INT);
+                $exec->bindValue(':id', $id, PDO::PARAM_INT);
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo $erro->getMessage();
