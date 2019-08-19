@@ -37,6 +37,7 @@
                 $exec->bindParam(':cpf',$cpf);
                 $exec->bindParam(':email',$email);
                 $exec->bindParam(':nivel',$nivel);
+                echo "<script>alert('Usuario cadastrado com sucesso!!');window.location ='../../view/telas/TelaCadastroUsuario.php';</script>";
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo $erro->getMessage();
@@ -54,6 +55,7 @@
                 $exec->bindValue(':cpf', $this->getCPF());
                 $exec->bindValue(':email', $this->getEmail());
                 $exec->bindValue(':nivel', $this->getNivel());
+                echo "<script>alert('Usuario atualizado com sucesso!!');window.location ='../../view/telas/TelaListarUsuario.php';</script>";
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo "Erro".$erro->getMessage();
@@ -65,7 +67,10 @@
                 $sql = "DELETE FROM $this->tabela WHERE id = :id";
                 $exec = DB::prepare($sql);
                 $exec->bindValue(':id', $id, PDO::PARAM_INT);
+                echo "<script>alert('Usuario deletado com sucesso!!');window.location ='../../view/telas/TelaListarUsuario.php';</script>";
+
                 return $exec->execute();
+                
             }catch(PDOException $erro){
                 echo $erro->getMessage();
             }

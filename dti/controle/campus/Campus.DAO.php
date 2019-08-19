@@ -54,7 +54,7 @@
                 $exec->bindValue(':endereco', $this->getEndereco());
                 $exec->bindValue(':rua',$this->getRua());
                 $exec->bindValue(':numero', $this->getNumero());
-               // echo "<script>alert('Campus Editado com Sucesso');window.location ='../../view/telas/TelaListarCampus.php';</script>";
+                echo "<script>alert('Campus Editado com Sucesso');window.location ='../../view/telas/TelaListarCampus.php';</script>";
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo $erro->getMessage();
@@ -66,6 +66,7 @@
                 $sql = "DELETE FROM $this->tabela WHERE id = :id";
                 $exec = DB::prepare($sql);
                 $exec->bindValue(':id', $id, PDO::PARAM_INT);
+                echo "<script>alert('Campus deletado com sucesso');window.location ='../../view/telas/TelaListarCampus.php';</script>";
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo $erro->getMessage();
