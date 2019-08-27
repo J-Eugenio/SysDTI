@@ -18,19 +18,19 @@
   <link rel="stylesheet" href="../../css/estilo.css">
 </head>
 
-<body class="text-center">
-  <form class="cor" method="POST" action="../../controle/usuario/Usuario.controller.php">
+<body class="text-center background" >
+  <form class="cor att" method="POST" action="../../controle/usuario/Usuario.controller.php">
     <div class="logo">
       <img class="mb-3" src="logo.png" alt="logo" width="300" height="140">
     </div>
     <h1 class="h3 mb-3 font-weight-normal"></h1>
     <div class="input-group input-group-sm mb-4">
-      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-      <input type="email" id="email" name="email" class="form-control" placeholder="Email" required autofocus>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user" style="height: 10px; align-self: auto; "></i></span>
+      <input type="email" id="email" name="email" class="form-control" placeholder="Digite seu E-mail..." required autofocus>
     </div>
     <div class="input-group input-group-sm mb-3">
       <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-      <input type="password" id="Password" name="senha" class="form-control" placeholder="Senha" required>
+      <input type="password" id="Password" name="senha" class="form-control" placeholder="Digite sua senha..." required>
     </div>
     <div class="input-group input-group-sm mb-3">
       <input type="hidden" id="acao" name="acao" value="autenticar">
@@ -40,7 +40,6 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
     </div>
 
-    <p class="mt-5 mb-3 text-muted">&copy; 2019-20</p>
 
 
   </form>

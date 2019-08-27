@@ -85,15 +85,15 @@
                 $exec->execute();
                 $users = $exec->fetchAll(PDO::FETCH_ASSOC);
                 if(count($users) <= 0){
-                    //echo "<script>alert('Login Incorreto');window.location ='../../view/telas/TelaLogin.php';</script>";
+                echo "<script>alert('Login Incorreto, insira os dados corretamente');
+                window.location ='../../view/telas/TelaLogin.php';</script>";
                 }else{
                     $user = $users[0];
                     session_start();
                     $_SESSION['logged_in'] = true;
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['user_name'] = $user['nome'];  
-                    echo "<script>alert('Login aprovado');window.location ='../../view/telas/TelaHome.php';</script>";
-                
+                    echo "<script>window.location='../../view/telas/TelaHome.php'</script>";
                 }
            }catch(PDOException $erro){
                echo $erro->getMessage();

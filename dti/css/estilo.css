@@ -2,17 +2,29 @@ div.logo {
   width:100%;
   margin: auto;
   position:relative;
-
+ 
 }
+
+.inputs {
+  height: 20px;
+}
+
+div{
+  margin-bottom: 10px;
+  align-self: auto;
+}
+
 form.cor{
   background-color:rgba(0,0,0,0.5);
   color: white;
-  font-weight: bold;    
+  font-weight: bold;
+      
 }
+.att {
+  border-radius: 20px;
+  padding: 25px;
+}
+
 body {
-  background-image: url("../view/telas/bg.jpg");
-  margin: 0;
-  padding: 0;
-  -webkit-background-size: cover;
-  background-size: cover;
+  background-image: linear-gradient( #1452d9, #00035c);
 }

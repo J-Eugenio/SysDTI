@@ -63,7 +63,7 @@
       </div>
       <button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Salvar</button>
       <button type="reset" class="btn btn-warning"><span class="fa fa-close"></span> Limpar</button>
-      <a href="TelaListarEquipamento.php" class="btn btn-info" >Listar</a>
+      <a href="TelaListarEquipamento.php" class="btn btn-info" >Pesquisar</a>
     </form>
   </div>
 

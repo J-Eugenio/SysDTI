@@ -16,6 +16,7 @@
                   <li class="sub-menu-li"><a href="TelaCadastroUsuario.php">Usuário</a></li>
                   <li class="sub-menu-li"><a href="TelaCadastroEquipamento.php">Equipamento</a></li>
                   <li class="sub-menu-li"><a href="TelaCadastroCampus.php">Campus</a></li>
+                  <li class="sub-menu-li"><a href="TelaCadastroSala.php">Sala</a></li>
                 </ul>
             </li>
             <li class="nav-item active"  id="items-li">
@@ -41,7 +42,7 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav" id="menu-logado">
              <li class="nav-item">
-                <span><i class= "fas fa-user"></i>Bem-Vindo/<?php echo $_SESSION['user_name']; ?> </span>
+                <span><i class= "fas fa-user"></i>Bem-Vindo/<?php echo $_SESSION['user_name'];?> </span>
              </li>
         </ul>
     </div>

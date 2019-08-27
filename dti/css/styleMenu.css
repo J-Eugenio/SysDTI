@@ -33,8 +33,11 @@ body{
 
 #menu-opcoes #items-li #items-a:hover{
     background: #4682B4;
+    
     border-radius: 14px;
     transition: .5s;
+    
+
 }
 
 #menu-opcoes #items-li:last-child a i{
@@ -94,10 +97,12 @@ body{
 
 #items-li:nth-child(2) > .sub-menu{
     margin-left: 15px;
+
 }
 
 #items-li:nth-child(3) > .sub-menu{
     margin-left: 30px;
+    
 }
 
 .sub-menu .sub-menu-li{
@@ -119,6 +124,8 @@ body{
 
 .sub-menu .sub-menu-li:hover{
     background: rgba(0,0,0,0.3);
+    align-self: auto;
+
 }
 
 #menu-opcoes #items-li:hover .sub-menu{
@@ -141,6 +148,7 @@ body{
     
     #menu-opcoes #items-li #items-a{
         text-align: center;
+        align-self: center;
     }
 }
 /* -------------- RESPONSIVIDADE  -------------*/
