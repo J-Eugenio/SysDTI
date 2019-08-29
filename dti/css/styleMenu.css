@@ -27,12 +27,12 @@ body{
 }
 
 #menu-opcoes #items-li #items-a{
-    margin-left: 40px;
+    margin-left: 0px;
     color: white;
 }
 
 #menu-opcoes #items-li #items-a:hover{
-    background: #4682B4;
+    background: rgb(89, 202, 174);
     
     border-radius: 14px;
     transition: .5s;
@@ -83,20 +83,23 @@ body{
 
 /* --- SUB MENU --- */
 .sub-menu{
+    display: flex !important;
+    justify-content: center !important;
     list-style: none;
     position: absolute;
+    padding-left: 20px;
     top: 60px;
     padding-left: 0; /*--- MOVIMENTAR SUB MENU AQUI ---*/
     z-index: 100;
     background:#4682B4; 
-    width: 130px;
+    width: 200px;
     border-bottom: 4px solid yellow;
     visibility: hidden;
     transition: all .1s ease;
 }
 
 #items-li:nth-child(2) > .sub-menu{
-    margin-left: 15px;
+    margin-left: 10px;
 
 }
 
@@ -106,9 +109,11 @@ body{
 }
 
 .sub-menu .sub-menu-li{
-    display: block;
+    align-content: center;
     padding-left: 0;
-    padding-right: 0;
+    width: 200px;
+    height: 40px;
+    padding-right: 10px;
     padding-bottom: 5px;
     padding-top: 8px;
     text-align: center;
@@ -120,18 +125,17 @@ body{
     cursor: pointer;
     padding: 8px;
     color: white;
+    padding-right: 10px;
 }
 
 .sub-menu .sub-menu-li:hover{
     background: rgba(0,0,0,0.3);
-    align-self: auto;
 
 }
 
 #menu-opcoes #items-li:hover .sub-menu{
      visibility: visible;
      display: block;
-     transform: translateY(1px);
 }
 /* --- FIM SUB MENU --- */
 

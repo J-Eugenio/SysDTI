@@ -90,7 +90,7 @@
                 }else{
                     $user = $users[0];
                     session_start();
-                    $_SESSION['logged_in'] = true;
+                    $_SESSION['logado'] = true;
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['user_name'] = $user['nome'];  
                     echo "<script>window.location='../../view/telas/TelaHome.php'</script>";

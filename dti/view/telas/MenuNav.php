@@ -35,7 +35,7 @@
             </li>
             
             <li class="nav-item active"  id="items-li">
-              <a class="nav-link" href="" id="items-a">Sair<i class="fas fa-sign-out-alt"></i></a>
+              <a class="nav-link" href="TelaLogin.php" id="items-a">Sair<i class="fas fa-sign-out-alt"></i></a>
             </li>
         </ul>
     </div>

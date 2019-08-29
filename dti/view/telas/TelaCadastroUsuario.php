@@ -1,8 +1,5 @@
 <?php 
-
-if (!isset($_SESSION)) {
-  session_start();
-}
+include_once '../../config/sessions.php';
 
 ?>
 <!DOCTYPE html>

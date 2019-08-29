@@ -1,5 +1,9 @@
-<?php if (!isset($_SESSION)) {
-  session_start();
+<?php 
+session_start();
+if (!isset($_SESSION['logado'])) {
+  header("location: TelaLogin.php");
+  session_destroy();
+
 
  $id =  filter_input(INPUT_GET,'id', FILTER_SANITIZE_NUMBER_INT);
 }

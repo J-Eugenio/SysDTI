@@ -2,7 +2,7 @@
 include_once '../../config/config.php';
 include_once '../../controle/campus/Campus.DAO.php';
 
-session_start();
+include_once '../../config/sessions.php';
 ?>
 
 <!DOCTYPE html>

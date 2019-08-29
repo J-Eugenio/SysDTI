@@ -1,3 +1,12 @@
+<?php 
+  session_start();
+  if(isset($_SESSION['logado'])){
+    header("location: TelaHome.php");
+
+    session_destroy();
+  }
+?>
+
 <!doctype html>
 <html lang="en">
 
