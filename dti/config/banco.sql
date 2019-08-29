@@ -65,12 +65,32 @@ CREATE TABLE IF NOT EXISTS `equipamento` (
   `tipo` varchar(200) NOT NULL,
   `descricao` varchar(300) NOT NULL,
   `vidaUtil` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `campus` varchar(200) NOT NULL,
-  PRIMARY KEY (`id`)
+  `campus` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+   CONSTRAINT FK_campus_equip FOREIGN KEY (`campus`)
+    REFERENCES campus(`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `equipamento`
+--
+--
+-- Estrutura da tabela `salas`
+--
+
+DROP TABLE IF EXISTS `salas`;
+CREATE TABLE IF NOT EXISTS `salas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Nome` varchar(200) NOT NULL,
+  `idCampus` int(11) NOT NULL,
+  `idEquipamento` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT FK_Campus FOREIGN KEY (`idCampus`)
+    REFERENCES campus(`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `salas`
 --
 
 INSERT INTO `equipamento` (`id`, `identificador`, `Nome`, `quantidade`, `tipo`, `descricao`, `vidaUtil`, `campus`) VALUES

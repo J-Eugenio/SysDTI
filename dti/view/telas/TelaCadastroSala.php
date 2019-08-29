@@ -19,7 +19,7 @@ require_once '../../config/DB.php';
   <?php include_once 'MenuNav.php'; ?>
 
   <div class="container">
-    <form method="POST" action="../../controle/campus/Campus.controller.php">
+    <form method="POST" action="../../controle/salas/Salas.controller.php">
       <div class="form-group">
         <label>Nome: </label>
         <input type="text" name="nome" class="form-control" placeholder="Informe o nome da sala.." />
