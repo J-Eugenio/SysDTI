@@ -34,7 +34,7 @@
                 $exec->bindParam(':nome',$nome);
                 $exec->bindParam(':idCampus',$idCampus);
 
-                echo "<script>alert('Sala Cadastrado com sucesso');window.location ='../../view/telas/TelaCadastroCampus.php';</script>";
+                echo "<script>alert('Sala Cadastrado com sucesso');window.location ='../../view/telas/TelaCadastroSala.php';</script>";
                 return $exec->execute();
               
             }catch(PDOException $erro){
@@ -48,7 +48,7 @@
                 $exec->bindValue(':id', $id, PDO::PARAM_INT);
                 $exec->bindValue(':nome', $this->getNome());
                 $exec->bindValue(':idCampus', $this->getIdCampus());
-                echo "<script>alert('Sala Editada com Sucesso');window.location ='../../view/telas/TelaListarCampus.php';</script>";
+                // echo "<script>alert('Sala Editada com Sucesso');window.location ='../../view/telas/TelaListar.php';</script>";
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo $erro->getMessage();
@@ -60,7 +60,7 @@
                 $sql = "DELETE FROM $this->tabela WHERE id = :id";
                 $exec = DB::prepare($sql);
                 $exec->bindValue(':id', $id, PDO::PARAM_INT);
-                echo "<script>alert('Sala deletado com sucesso');window.location ='../../view/telas/TelaListarCampus.php';</script>";
+                // echo "<script>alert('Sala deletado com sucesso');window.location ='../../view/telas/TelaListarCampus.php';</script>";
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo $erro->getMessage();
