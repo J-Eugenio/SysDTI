@@ -1,6 +1,6 @@
 <?php 
 include_once '../../config/sessions.php';
-
+require_once '../../config/DB.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -27,8 +27,20 @@ include_once '../../config/sessions.php';
 
       <div class="form-group">
         <label>Campus:  </label>
-        <select class="form-control">
+        <select name="select_campus" class="form-control">
            <option>Selecione o campus...</option>
+           <?php
+              $result_campus = "SELECT * FROM campus";
+              $exec = DB::prepare($result_campus);
+              $exec->execute();
+              while($dados = $exec->fetch(PDO::FETCH_ASSOC)):?>
+                <option value="<?php echo $dados['id']?>">
+                  <?php echo $dados['nome']?>
+                </option>
+            <?php
+              endwhile;
+            ?>
+           
         </select>
       </div>
       <div class="form-group">
