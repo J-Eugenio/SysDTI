@@ -23,7 +23,7 @@ require_once '../../config/DB.php';
     <form method="POST" action="../../controle/equipamento/Equipamento.controller.php">
   <div class="form-group">
         <input type="hidden" name="id" value="" />
-        <label>Identificador: </label>
+        <label>Tombo: </label>
         <input type="text" name="identificador" class="form-control" placeholder="Informe o identificador..">
   </div>
   <div class="form-group">

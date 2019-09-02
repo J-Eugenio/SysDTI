@@ -27,17 +27,14 @@ body{
 }
 
 #menu-opcoes #items-li #items-a{
-    margin-left: 0px;
+    margin-left: 40px;
     color: white;
 }
 
 #menu-opcoes #items-li #items-a:hover{
-    background: rgb(89, 202, 174);
-    
+    background: #4682B4;
     border-radius: 14px;
     transition: .5s;
-    
-
 }
 
 #menu-opcoes #items-li:last-child a i{
@@ -64,12 +61,12 @@ body{
 }
 
 .container{
-    padding-top: 20px;
+    padding-top: 50px;
 }
 
 .container-table{
     background: white;
-    padding: 10px;
+    padding: 20px;
 }
 
 #nav-menu .collapse:nth-child(2){
@@ -83,37 +80,30 @@ body{
 
 /* --- SUB MENU --- */
 .sub-menu{
-    display: flex !important;
-    justify-content: center !important;
     list-style: none;
     position: absolute;
-    padding-left: 20px;
     top: 60px;
     padding-left: 0; /*--- MOVIMENTAR SUB MENU AQUI ---*/
     z-index: 100;
     background:#4682B4; 
-    width: 200px;
+    width: 130px;
     border-bottom: 4px solid yellow;
     visibility: hidden;
     transition: all .1s ease;
 }
 
 #items-li:nth-child(2) > .sub-menu{
-    margin-left: 10px;
-
+    margin-left: 15px;
 }
 
 #items-li:nth-child(3) > .sub-menu{
     margin-left: 30px;
-    
 }
 
 .sub-menu .sub-menu-li{
-    align-content: center;
+    display: block;
     padding-left: 0;
-    width: 200px;
-    height: 40px;
-    padding-right: 10px;
+    padding-right: 0;
     padding-bottom: 5px;
     padding-top: 8px;
     text-align: center;
@@ -125,17 +115,16 @@ body{
     cursor: pointer;
     padding: 8px;
     color: white;
-    padding-right: 10px;
 }
 
 .sub-menu .sub-menu-li:hover{
     background: rgba(0,0,0,0.3);
-
 }
 
 #menu-opcoes #items-li:hover .sub-menu{
      visibility: visible;
      display: block;
+     transform: translateY(1px);
 }
 /* --- FIM SUB MENU --- */
 
@@ -152,7 +141,6 @@ body{
     
     #menu-opcoes #items-li #items-a{
         text-align: center;
-        align-self: center;
     }
 }
 /* -------------- RESPONSIVIDADE  -------------*/

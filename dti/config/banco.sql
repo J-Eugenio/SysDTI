@@ -66,9 +66,10 @@ CREATE TABLE IF NOT EXISTS `equipamento` (
   `descricao` varchar(300) NOT NULL,
   `vidaUtil` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `campus` int(11) NOT NULL,
+  `salas` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-   CONSTRAINT FK_campus_equip FOREIGN KEY (`campus`)
-    REFERENCES campus(`id`)
+  CONSTRAINT FK_campus_equip FOREIGN KEY (`campus`)
+  REFERENCES campus(`id`),
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
@@ -86,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `salas` (
   `idEquipamento` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT FK_Campus FOREIGN KEY (`idCampus`)
-    REFERENCES campus(`id`)
+  REFERENCES campus(`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
@@ -122,8 +123,8 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `nome`, `login`, `senha`, `email`, `cpf`, `nivel`) VALUES
-(1, 'Teste12', 'Thiago', 'zedoqueijo', 'teste12@test.com', '88998888877', '1'),
-(5, 'Teste12', 'Thiago aAlencar', 'zedoqueijo', 'teste12@test.com', '888.777.999-88', '1'),
+(1, 'Teste12', 'Thiago', 'admin', 'admin@admin.com', '88998888877', '1'),
+(5, 'Teste12', 'Thiago Alencar', 'admin2', 'admin2@admin.com', '888.777.999-88', '1'),
 (6, '', '', '', '', '', 'Professor');
 COMMIT;
 
