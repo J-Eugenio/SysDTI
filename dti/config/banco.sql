@@ -66,10 +66,9 @@ CREATE TABLE IF NOT EXISTS `equipamento` (
   `descricao` varchar(300) NOT NULL,
   `vidaUtil` varchar(300) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `campus` int(11) NOT NULL,
-  `salas` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT FK_campus_equip FOREIGN KEY (`campus`)
-  REFERENCES campus(`id`),
+  REFERENCES campus(`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
