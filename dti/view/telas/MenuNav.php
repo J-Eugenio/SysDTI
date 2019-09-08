@@ -17,6 +17,7 @@
                   <li class="sub-menu-li"><a href="TelaCadastroEquipamento.php">Equipamento</a></li>
                   <li class="sub-menu-li"><a href="TelaCadastroCampus.php">Campus</a></li>
                   <li class="sub-menu-li"><a href="TelaCadastroSala.php">Sala</a></li>
+                  <li class="sub-menu-li"><a href="TelaRealizarReserva.php">Reserva</a></li>
                 </ul>
             </li>
             <li class="nav-item active"  id="items-li">
