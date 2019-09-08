@@ -75,6 +75,20 @@ CREATE TABLE IF NOT EXISTS `equipamento` (
 -- Extraindo dados da tabela `equipamento`
 --
 --
+-- Estrutura da tabela `equipamento`
+--
+
+DROP TABLE IF EXISTS `reserva`;
+CREATE TABLE IF NOT EXISTS `reserva` (
+  `id` int(11) NOT NULL,
+  `idEquipamento` int(11) NOT NULL,
+  `idSala` int(11) NOT NULL,
+  `idCampus` int(255) NOT NULL,
+  `data` DATE NOT NULL,
+  `turno` varchar(40) NOT NULL,
+  `horario` varchar(4) NOT NULL
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+--
 -- Estrutura da tabela `salas`
 --
 
@@ -86,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `salas` (
   `idEquipamento` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT FK_Campus FOREIGN KEY (`idCampus`)
-  REFERENCES campus(`id`)
+  REFERENCES `campus`(`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
@@ -125,8 +139,20 @@ INSERT INTO `usuario` (`id`, `nome`, `login`, `senha`, `email`, `cpf`, `nivel`) 
 (1, 'Teste12', 'Thiago', 'admin', 'admin@admin.com', '88998888877', '1'),
 (5, 'Teste12', 'Thiago Alencar', 'admin2', 'admin2@admin.com', '888.777.999-88', '1'),
 (6, '', '', '', '', '', 'Professor');
-COMMIT;
+--
+-- RESERVA
+--
+ALTER TABLE `reserva`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `equipamentos` (`idEquipamento`),
+  ADD KEY `salas` (`idSala`),
+  ADD KEY `campus` (`idCampus`);
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ALTER TABLE `reserva`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `reserva`
+  ADD CONSTRAINT salas FOREIGN KEY (`idSala`) REFERENCES `salas`(`id`),
+  ADD CONSTRAINT equipamentos FOREIGN KEY (`idEquipamento`) REFERENCES `equipamento`(`id`),
+  ADD CONSTRAINT campus FOREIGN KEY (`idCampus`) REFERENCES `campus`(`id`);
+COMMIT;
