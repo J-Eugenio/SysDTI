@@ -16,13 +16,24 @@ require_once '../../config/DB.php';
 
 <body>
 
-  <?php include_once 'MenuNav.php'; ?>
+  <?php 
+  include_once 'MenuNav.php';
+  
+    //sql de retornar
+    $resultaQuery = " SELECT  c.*, t.`nome` AS campus FROM salas AS c INNER JOIN `campus` AS t ON c.`idCampus` = t.`id` ORDER BY id ASC  ";
+
+    //selecionar os registros
+    $resulta = $conecta->prepare($resultaQuery);
+    $resulta->execute();
+    $resultaEditar = $resulta->fetch(PDO::FETCH_ASSOC);
+
+  ?>
 
   <div class="container">
     <form method="POST" action="../../controle/salas/Salas.controller.php">
       <div class="form-group">
         <label>Nome: </label>
-        <input type="text" name="nome" class="form-control" placeholder="Informe o nome da sala.." />
+        <input type="text" name="nome" class="form-control" placeholder="Informe o nome da sala.." value="<?php if(isset($resultaEditar['Nome'])) { echo $resultaEditar['Nome']; } ?>" />
       </div>
 
       <div class="form-group">
@@ -44,7 +55,7 @@ require_once '../../config/DB.php';
         </select>
       </div>
       <div class="form-group">
-        <input type="hidden" name="acao" class="form-control" value="inserir"/>
+        <input type="hidden" name="acao" class="form-control" value="update"/>
       </div>
 
       <button type="submit" class="btn btn-success"><span class="fa fa-check"></span> Salvar</button>

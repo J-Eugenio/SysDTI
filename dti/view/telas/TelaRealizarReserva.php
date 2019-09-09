@@ -19,7 +19,6 @@ require_once '../../config/DB.php';
   <?php include_once 'MenuNav.php'; ?>
 
   <div class="container">
-      Form aqui esta controleSala, mudar
     <form method="POST" action="../../controle/reserva/Reserva.controller.php">
       <div class="form-group">
         <label>Equipamento: </label>
@@ -81,7 +80,7 @@ require_once '../../config/DB.php';
       <label>Data:</label>
    <div class="form-group row">
       <div class="col-10">
-      <input class="form-control" type="date"   value="<?php echo date('Y-m-d'); ?>" id="data" name="data">
+      <input class="form-control" type="date" id="data" name="data">
    </div>
    </div>
 

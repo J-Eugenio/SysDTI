@@ -60,7 +60,7 @@
                 $sql = "DELETE FROM $this->tabela WHERE id = :id";
                 $exec = DB::prepare($sql);
                 $exec->bindValue(':id', $id, PDO::PARAM_INT);
-                // echo "<script>alert('Sala deletado com sucesso');window.location ='../../view/telas/TelaListarCampus.php';</script>";
+                echo "<script>alert('Sala deletada com sucesso');window.location ='../../view/telas/TelaListarSala.php';</script>";
                 return $exec->execute();
             }catch(PDOException $erro){
                 echo $erro->getMessage();
