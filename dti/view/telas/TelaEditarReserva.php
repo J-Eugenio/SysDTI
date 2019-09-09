@@ -16,7 +16,27 @@ require_once '../../config/DB.php';
 
 <body>
 
-  <?php include_once 'MenuNav.php'; ?>
+  <?php 
+  include_once 'MenuNav.php'; 
+
+   //sql de retornar
+   $resultaQuery = "SELECT r.*, camp.`nome` AS campus, equip.`nome` AS equipamento, 
+   salaP.`nome` AS sala FROM reserva AS r 
+   INNER JOIN `campus` AS camp 
+   INNER JOIN salas AS salaP
+   INNER JOIN equipamento AS equip 
+   ON r.`idCampus`=camp.`id` 
+   AND r.`idEquipamento`=equip.`id` 
+   AND r.`idSala`=salaP.`id` 
+   ORDER BY id ASC";
+
+   //selecionar os registros
+   $resulta = $conecta->prepare($resultaQuery);
+   $resulta->execute();
+   $resultaEditar = $resulta->fetch(PDO::FETCH_ASSOC);
+
+
+  ?>
 
   <div class="container">
     <form method="POST" action="../../controle/reserva/Reserva.controller.php">

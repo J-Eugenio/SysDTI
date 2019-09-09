@@ -1,7 +1,7 @@
 <?php 
 include_once '../../config/config.php';
 // include_once '../../controle/campus/Campus.DAO.php';
-include_once '../../controle/salas/Salas.DAO.php';
+include_once '../../controle/reserva/Reserva.DAO.php';
 
 include_once '../../config/sessions.php';
 ?>
@@ -19,14 +19,22 @@ include_once '../../config/sessions.php';
       
       }
     </script>
-    <title>Listar Salas</title>
+    <title>Listar Reservas</title>
 </head>
 <body>
 <?php include_once 'MenuNav.php';  ?>
-<h1>LISTAGEM DE SALAS</h1>
+<h1>LISTAGEM DE RESERVA</h1>
 <?php 
-$resultado = "SELECT  c.*, t.`nome` AS campus FROM salas AS c INNER JOIN `campus` 
-AS t ON c.`idCampus` = t.`id` ORDER BY id ASC ";
+$resultado = "SELECT r.*, camp.`nome` AS campus, equip.`nome` AS equipamento, 
+salaP.`nome` AS sala FROM reserva AS r 
+INNER JOIN `campus` AS camp 
+INNER JOIN salas AS salaP
+INNER JOIN equipamento AS equip 
+ON r.`idCampus`=camp.`id` 
+AND r.`idEquipamento`=equip.`id` 
+AND r.`idSala`=salaP.`id` 
+ORDER BY id ASC
+";
 
 $resultado = $conecta->prepare($resultado);
 
@@ -36,27 +44,27 @@ $resultado->execute();
 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="50%">
                   <thead>
                     <tr>
-                      <th>Nome da Sala</th>
+                      <th>Horario</th>
+                      <th>Turno</th>
                       <th>Campus</th>
+                      <th>Sala</th>
                       <th class="text-center">Ações</th>
                     </tr>
                   </thead>
                   <tbody style="overflow: auto; height: 300px">
 <?php
 while($resultadoLista = $resultado->fetch(PDO::FETCH_ASSOC)){
-      //echo  $resultadoLista['id'] "<br>";
-   // echo  $resultadoLista['login'] "<br>";
-   // echo  $resultadoLista['nome'] "<br>";
-   // echo  $resultadoLista['email'] "<br>";   
 
    ?>  
  <tr>
-      <th> <?php echo $resultadoLista['Nome'] ?> </th>
+      <th> <?php echo $resultadoLista['horario'] ?> </th>
+      <th> <?php echo $resultadoLista['turno'] ?> </th>
       <th> <?php echo $resultadoLista['campus'] ?> </th>
+      <th> <?php echo $resultadoLista['sala'] ?> </th>
       <th class="text-center">
-      <a href="../../controle/salas/Salas.controller.php?acao=delete&id=<?php echo $resultadoLista['id'] ?>" name="acao" class="btn btn-sm btn-danger excluir-usuario" onClick="remover()">
+      <a href="../../controle/reserva/Reserva.controller.php?acao=delete&id=<?php echo $resultadoLista['id'] ?>" name="acao" class="btn btn-sm btn-danger excluir-usuario" onClick="remover()">
       <span class="fa fa-trash"></span> Excluir</a>
-      <a href="TelaEditarSala.php?id=<?php echo $resultadoLista['id'] ?>" class="btn btn-sm btn-primary" >
+      <a href="TelaEditarReserva.php?id=<?php echo $resultadoLista['id'] ?>" class="btn btn-sm btn-primary" >
       <span class="fa fa-cogs"></span> Atualizar</a>
       </th>
       </tr>
