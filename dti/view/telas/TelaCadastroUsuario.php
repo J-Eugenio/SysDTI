@@ -39,11 +39,12 @@ include_once '../../config/sessions.php';
       </div>
       <div class="form-group">
         <label>CPF: </label>
-        <input type="text" name="cpf" class="form-control" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="Digite o CPF no formato nnn.nnn.nnn-nn"  />
+        <input type="text" name="cpf" class="form-control" placeholder="Digite o CPF no formato nnn.nnn.nnn-nn"  />
       </div>
       <div class="form-group">
         <label>Nível: </label>
         <select class="form-control" name="nivel" id="nivel">
+          <option>Selecione o nivel de acesso...</option>
           <option value="Administrador / Funcionário">Administrador / Funcionário</option>
           <option value="Professor">Professor</option>
         </select>

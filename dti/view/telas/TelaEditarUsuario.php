@@ -57,9 +57,14 @@ include_once '../../config/config.php';
       </div>
       <div class="form-group">
         <label>Nível: </label>
-        <select class="form-control" name="nivel" id="nivel" <?php if(isset($resultaEditar['nivel'])) { echo $resultaEditar['nivel']; } ?>>
-          <option value="1">Administrador / Funcionário</option>
-          <option value="2">Professor</option>
+        <select class="form-control" name="nivel" id="nivel">
+        <?php if(isset($resultaEditar['nivel'])) { ?>
+          <option><?php echo $resultaEditar['nivel']; ?></option>          
+        <?php }?>
+          <option>Selecione o nivel de acesso...</option>
+          
+          <option value="Administrador / Funcionário">Administrador / Funcionário</option>
+          <option value="Professor">Professor</option>
         </select>
       </div>
       <div class="form-group">

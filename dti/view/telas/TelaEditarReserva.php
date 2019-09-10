@@ -55,6 +55,9 @@ require_once '../../config/DB.php';
             <?php
               endwhile;
             ?>
+            <?php if(isset($resultaEditar['equipamento'])) { ?>
+              <option selected><?php echo $resultaEditar['equipamento']; ?></option>          
+            <?php }?>
            
         </select>
       </div>
@@ -74,6 +77,9 @@ require_once '../../config/DB.php';
             <?php
               endwhile;
             ?>
+            <?php if(isset($resultaEditar['sala'])) { ?>
+              <option selected><?php echo $resultaEditar['sala']; ?></option>          
+            <?php }?>
            
         </select>
       </div>
@@ -93,6 +99,10 @@ require_once '../../config/DB.php';
             <?php
               endwhile;
             ?>
+
+            <?php if(isset($resultaEditar['campus'])) { ?>
+              <option selected><?php echo $resultaEditar['campus']; ?></option>          
+            <?php }?>
            
         </select>
       </div>
@@ -107,6 +117,9 @@ require_once '../../config/DB.php';
    <div class="form-group">
         <label>Turno:  </label>
         <select name="select_turno" class="form-control">
+        <?php if(isset($resultaEditar['turno'])) { ?>
+              <option selected><?php echo $resultaEditar['turno']; ?></option>          
+            <?php }?>
            <option>Selecione o turno...</option>
            <option value="Manha">Manha</option>
            <option value="Tarde">Tarde</option>
@@ -117,6 +130,9 @@ require_once '../../config/DB.php';
       <div class="form-group">
         <label>Horário:  </label>
         <select name="select_horario" class="form-control">
+            <?php if(isset($resultaEditar['horario'])) { ?>
+              <option selected><?php echo $resultaEditar['horario']; ?></option>          
+            <?php }?>
            <option>Selecione o horário...</option>
            <option value="AB">AB</option>
            <option value="CD">CD</option>

@@ -102,6 +102,11 @@ require_once '../../config/DB.php';
            <option value="CD">CD</option>
         </select>
       </div>
+
+      <div class="form-group">
+         <label for="exampleFormControlTextarea1">Observação:</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="observacao"></textarea>
+    </div>
       
       <div class="form-group">
         <input type="hidden" name="acao" class="form-control" value="inserir"/>
