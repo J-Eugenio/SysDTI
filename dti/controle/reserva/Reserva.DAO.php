@@ -26,10 +26,10 @@
                 echo $erro->getMessage();
             }
         }
-        public function insert($idEquipamento, $idSala, $idCampus, $data, $turno, $horario){
+        public function insert($idEquipamento, $idSala, $idCampus, $data, $turno, $horario, $observacao){
             try{
-                $sql = "INSERT INTO $this->tabela(idEquipamento, idSala, idCampus, data, turno, horario)
-             VALUES (:idEquipamento, :idSala, :idCampus, :data, :turno, :horario)";
+                $sql = "INSERT INTO $this->tabela(idEquipamento, idSala, idCampus, data, turno, horario, observacao)
+             VALUES (:idEquipamento, :idSala, :idCampus, :data, :turno, :horario, :observacao)";
                 $exec = DB::prepare($sql);
                 $exec->bindParam(':idEquipamento',$idEquipamento);
                 $exec->bindParam(':idSala',$idSala, PDO::PARAM_INT);
@@ -37,8 +37,10 @@
                 $exec->bindParam(':data',$data);
                 $exec->bindParam(':turno',$turno);
                 $exec->bindParam(':horario',$horario);
+                $exec->bindParam(':observacao',$observacao);
 
-                echo "<script>alert('Reserva Cadastrada com sucesso');window.location ='../../view/telas/TelaRealizarReserva.php';</script>";
+                var_dump($exec);
+                // echo "<script>alert('Reserva Cadastrada com sucesso');window.location ='../../view/telas/TelaRealizarReserva.php';</script>";
                 return $exec->execute();
               
             }catch(PDOException $erro){

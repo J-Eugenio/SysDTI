@@ -86,7 +86,8 @@ CREATE TABLE IF NOT EXISTS `reserva` (
   `idCampus` int(255) NOT NULL,
   `data` DATE NOT NULL,
   `turno` varchar(40) NOT NULL,
-  `horario` varchar(4) NOT NULL
+  `horario` varchar(4) NOT NULL,
+  `observacao` varchar(500) NOT NULL
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 --
 -- Estrutura da tabela `salas`
