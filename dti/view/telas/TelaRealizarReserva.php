@@ -30,7 +30,7 @@ require_once '../../config/DB.php';
               $exec = DB::prepare($result_campus);
               $exec->execute();
               while($dados = $exec->fetch(PDO::FETCH_ASSOC)):?>
-                <option value="<?php echo $dados['id']?>">
+                <option value="<?php echo $dados['nome']?>">
                   <?php echo $dados['nome']?>
                 </option>
             <?php
@@ -39,8 +39,8 @@ require_once '../../config/DB.php';
         </select>
       </div>
       <div class="form-group">
-        <label id="select_salas">Sala:  </label>
-        <select   class="form-control">
+      <label>Salas: </label>
+        <select name="select_salas" id="select_salas" class="form-control">
            <option>Selecione a sala...</option>
         </select>
       </div>
@@ -104,20 +104,25 @@ require_once '../../config/DB.php';
   <!-- JS -->
   <script type="text/javascript">
     $(function(){
+      //Preencher Select Salas
       $('#select_campus').change(function(){
+        //Limpar e adicionar o valor padrão
+          $('#select_salas').empty();
+          $('#select_salas').append(`<option value="">Selecione uma opção</option>`); 
+        //-----------------------------------------------------------
+        //Executa a query, retorna os dados e adicionar em um select
         if($(this).val()){
-          $.getJSON('../../querys/querys.php?seach=',{select_campus: $(this).val(),
-           ajax: 'true'}, function(j){
-             var valor = 'tettet';
+          $.getJSON('../../querys/querys.php?search=',
+          {select_campus: $('#select_campus').val(),ajax: 'true'},
+          function(j){
              for(var i = 0; i < j.length; i++){
-               valor +="tettet";
+               id =j[i].id;
+               nome =j[i].nome;
+               $('#select_salas').append(`<option value="${id}">${nome}</option>`); 
              }
-             $('#select_salas').html(valor).show();
-           });
-        }else{
-
+          });
         }
-      })
+      })   
     });   
   </script>
 </body>
