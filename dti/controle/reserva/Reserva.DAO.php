@@ -39,8 +39,7 @@
                 $exec->bindParam(':horario',$horario);
                 $exec->bindParam(':observacao',$observacao);
 
-                var_dump($exec);
-                // echo "<script>alert('Reserva Cadastrada com sucesso');window.location ='../../view/telas/TelaRealizarReserva.php';</script>";
+                echo "<script>alert('Reserva Cadastrada com sucesso');window.location ='../../view/telas/TelaRealizarReserva.php';</script>";
                 return $exec->execute();
               
             }catch(PDOException $erro){

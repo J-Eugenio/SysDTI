@@ -22,7 +22,7 @@
             }
             $ReservaClass->setIdEquipamento($_POST['select_equipamento']);
             $ReservaClass->seIdCampus($_POST['select_campus']);
-           // $ReservaClass->setIdSala($_POST['select_salas']);
+            $ReservaClass->setIdSala($_POST['select_salas']);
             $ReservaClass->setData($_POST['data']);
             $ReservaClass->setHorario($_POST['select_horario']);
             $ReservaClass->setTurno($_POST['select_turno']);

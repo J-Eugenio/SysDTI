@@ -45,10 +45,10 @@ CREATE TABLE IF NOT EXISTS `campus` (
 
 INSERT INTO `campus` (`id`, `nome`, `cnpj`, `endereco`, `rua`, `numero`) VALUES
 (1, 'Teste', 'Rua Raimunda Pereira de Melo', '1516516456', '630', '251'),
-(2, 'Teste123', 'Rua Raimunda Pereira de Melo12', '1516516456123', '63012', '25122'),
-(3, 'Teste123', 'Rua Raimunda Pereira de Melo12', '1516516456123', '63012', '25122'),
-(4, 'Teste123123', 'Rua Raimunda Pereira de Melo12123', '1516516456123123', '63012123', '25122123'),
-(5, 'Teste', '1516516456', 'Rua Raimunda Pereira de Melo', '630', '251');
+(2, 'Teste1', 'Rua Raimunda Pereira de Melo12', '1516516456123', '63012', '25122'),
+(3, 'Teste2', 'Rua Raimunda Pereira de Melo12', '1516516456123', '63012', '25122'),
+(4, 'Teste3', 'Rua Raimunda Pereira de Melo12123', '1516516456123123', '63012123', '25122123'),
+(5, 'Teste4', '1516516456', 'Rua Raimunda Pereira de Melo', '630', '251');
 
 -- --------------------------------------------------------
 
@@ -109,10 +109,10 @@ CREATE TABLE IF NOT EXISTS `salas` (
 --
 
 INSERT INTO `equipamento` (`id`, `identificador`, `Nome`, `quantidade`, `tipo`, `descricao`, `vidaUtil`, `campus`) VALUES
-(1, 'dasda', 'asdasd', 12, 'asdad', 'asdasda', '1', ''),
-(2, 'dasda', 'asdasd', 12, 'asdad', 'asdasda', '1', ''),
-(3, 'dasda', 'Teste', 12, 'asdad', 'asdads', 'Restaurado', ''),
-(4, 'asda', 'asda', 12, 'asda', 'asdasd', 'Manutenção', 'asdas');
+(1, 'VGA', 'asdasd', 12, 'asdad', 'asdasda', '1', ''),
+(2, 'HADMI', 'asdasd', 12, 'asdad', 'asdasda', '1', ''),
+(3, 'SOM', 'Teste', 12, 'asdad', 'asdads', 'Restaurado', ''),
+(4, 'NOTEBOOK', 'asda', 12, 'asda', 'asdasd', 'Manutenção', 'asdas');
 
 -- --------------------------------------------------------
 

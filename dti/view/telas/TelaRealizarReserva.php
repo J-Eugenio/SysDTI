@@ -30,7 +30,7 @@ require_once '../../config/DB.php';
               $exec = DB::prepare($result_campus);
               $exec->execute();
               while($dados = $exec->fetch(PDO::FETCH_ASSOC)):?>
-                <option value="<?php echo $dados['nome']?>">
+                <option value="<?php echo $dados['id']?>">
                   <?php echo $dados['nome']?>
                 </option>
             <?php
@@ -46,19 +46,8 @@ require_once '../../config/DB.php';
       </div>
       <div class="form-group">
         <label>Equipamento: </label>
-        <select name="select_equipamento" class="form-control">
-           <option>Selecione o Equipamento...</option>
-           <?php
-              $result_equip = "SELECT * FROM equipamento";
-              $exec = DB::prepare($result_equip);
-              $exec->execute();
-              while($dados = $exec->fetch(PDO::FETCH_ASSOC)):?>
-                <option value="<?php echo $dados['id']?>">
-                  <?php echo $dados['Nome']?>
-                </option>
-            <?php
-              endwhile;
-            ?>      
+        <select name="select_equipamento" id="select_equipamento" class="form-control">
+           <option>Selecione o Equipamento...</option>      
         </select>
       </div>
       <label>Data:</label>
@@ -108,11 +97,11 @@ require_once '../../config/DB.php';
       $('#select_campus').change(function(){
         //Limpar e adicionar o valor padrão
           $('#select_salas').empty();
-          $('#select_salas').append(`<option value="">Selecione uma opção</option>`); 
+          $('#select_salas').append(`<option value="">Selecione uma Sala</option>`); 
         //-----------------------------------------------------------
         //Executa a query, retorna os dados e adicionar em um select
         if($(this).val()){
-          $.getJSON('../../querys/querys.php?search=',
+          $.getJSON('../../querys/querysSalas.php?search=',
           {select_campus: $('#select_campus').val(),ajax: 'true'},
           function(j){
              for(var i = 0; i < j.length; i++){
@@ -124,6 +113,27 @@ require_once '../../config/DB.php';
         }
       })   
     });   
+    $(function(){
+      //Preencher Select equipamento
+      $('#select_campus').change(function(){
+        //Limpar e adicionar o valor padrão
+          $('#select_equipamento').empty();
+          $('#select_equipamento').append(`<option value="">Selecione um Equipamento</option>`); 
+        //-----------------------------------------------------------
+        //Executa a query, retorna os dados e adicionar em um select
+        if($(this).val()){
+          $.getJSON('../../querys/querysEquipamentos.php?search=',
+          {select_campus: $('#select_campus').val(),ajax: 'true'},
+          function(j){
+             for(var i = 0; i < j.length; i++){
+               id =j[i].id;
+               nome =j[i].nome;
+               $('#select_equipamento').append(`<option value="${id}">${nome}</option>`); 
+             }
+          });
+        }
+      })   
+    });  
   </script>
 </body>
 
