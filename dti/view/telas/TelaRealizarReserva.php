@@ -45,6 +45,11 @@ require_once '../../config/DB.php';
         </select>
       </div>
       <div class="form-group">
+        <div class="col-md-6">
+          <div class="form-group">
+            <span id="resultado_qtd">QTD</span>
+          </div>
+        </div>
         <label>Equipamento: </label>
         <select name="select_equipamento" id="select_equipamento" class="form-control">
            <option>Selecione o Equipamento...</option>      
@@ -59,7 +64,7 @@ require_once '../../config/DB.php';
 
    <div class="form-group">
         <label>Turno:  </label>
-        <select name="select_turno" class="form-control">
+        <select name="select_turno" id="select_turno" class="form-control">
            <option>Selecione o turno...</option>
            <option value="Manha">Manha</option>
            <option value="Tarde">Tarde</option>
@@ -69,7 +74,7 @@ require_once '../../config/DB.php';
 
       <div class="form-group">
         <label>Horário:  </label>
-        <select name="select_horario" class="form-control">
+        <select name="select_horario" id="select_horario" class="form-control">
            <option>Selecione o horário...</option>
            <option value="AB">AB</option>
            <option value="CD">CD</option>
@@ -133,7 +138,32 @@ require_once '../../config/DB.php';
           });
         }
       })   
-    });  
+    });
+    $(function(){
+      //Preencher Select equipamento
+      $('#select_campus').change(function(){
+        //Limpar e adicionar o valor padrão
+          $('#select_equipamento').empty();
+          $('#select_equipamento').append(`<option value="">Selecione um Equipamento</option>`); 
+        //-----------------------------------------------------------
+        //Executa a query, retorna os dados e adicionar em um select
+        if($(this).val()){
+          $.getJSON('../../querys/queryQuantidadeDisponivel.php?search=',
+          {
+            select_turno: $('#select_turno').val(),
+            select_campus: $('#select_campus').val(),
+            data: $('#data').val(),
+            select_equipamento: $('#select_equipamento').val(),
+            select_horario: $('#select_horario').val(),
+            ajax: 'true'},
+          function(j){
+            var valor = '';	
+						valor = 'Quantidade Disponivel: ' + j[0].qtd;	
+						$('#resultado_qtd').html(valor);
+          });
+        }
+      })   
+    });
   </script>
 </body>
 
