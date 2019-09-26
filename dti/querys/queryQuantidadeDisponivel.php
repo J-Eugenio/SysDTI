@@ -10,13 +10,13 @@
                             AND reserva.data = '$data'
                             AND reserva.idCampus = '$campus'
                             AND reserva.horario = '$horario'
-                            AND reserva.idEquipamento = equipamento.id)) AS 'QuantidadeDisponível' 
-FROM reserva INNER JOIN equipamento ON equipamento.id = reserva.idEquipamento INNER JOIN campus ON reserva.idCampus = campus.id WHERE reserva.idEquipamento = $idEquipamento ";
+                            AND reserva.idEquipamento = equipamento.id)) AS 'qtdDisponivel' 
+    FROM reserva INNER JOIN equipamento ON equipamento.id = reserva.idEquipamento INNER JOIN campus ON reserva.idCampus = campus.id WHERE reserva.idEquipamento = '$idEquipamento'";
     $exec = DB::prepare($result_equipamentos);
     $exec->execute();
     while($dados = $exec->fetch(PDO::FETCH_ASSOC)){
         $result[] = array(
-            'qtd' => $dados['QuantidadeDisponível']
+            'qtd' => $dados['qtdDisponivel']
         );
     }
 

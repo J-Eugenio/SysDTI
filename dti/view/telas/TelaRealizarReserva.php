@@ -141,10 +141,8 @@ require_once '../../config/DB.php';
     });
     $(function(){
       //Preencher Select equipamento
-      $('#select_campus').change(function(){
+      $('#select_equipamento, #data, #select_horario, #select_turno').change(function(){
         //Limpar e adicionar o valor padrão
-          $('#select_equipamento').empty();
-          $('#select_equipamento').append(`<option value="">Selecione um Equipamento</option>`); 
         //-----------------------------------------------------------
         //Executa a query, retorna os dados e adicionar em um select
         if($(this).val()){
@@ -163,7 +161,7 @@ require_once '../../config/DB.php';
           });
         }
       })   
-    });
+    });   
   </script>
 </body>
 
