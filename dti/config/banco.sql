@@ -98,7 +98,6 @@ CREATE TABLE IF NOT EXISTS `salas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(200) NOT NULL,
   `idCampus` int(11) NOT NULL,
-  `idEquipamento` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT FK_Campus FOREIGN KEY (`idCampus`)
   REFERENCES `campus`(`id`)

@@ -1,7 +1,7 @@
 <?php
     define('HOST','localhost');
-    define('USER','root');
-    define('PASS','');
+    define('USER','toor');
+    define('PASS','#Key123K');
     define('BASE','dti');
 
     $conecta = new PDO('mysql:host=' . HOST . ';dbname=' . BASE . ';' , USER, PASS);
