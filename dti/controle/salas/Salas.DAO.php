@@ -34,7 +34,7 @@
                 $exec->bindParam(':nome',$nome);
                 $exec->bindParam(':idCampus',$idCampus);
 
-                //echo "<script>alert('Sala Cadastrado com sucesso');window.location ='../../view/telas/TelaCadastroSala.php';</script>";
+                echo "<script>alert('Sala Cadastrado com sucesso');window.location ='../../view/telas/TelaCadastroSala.php';</script>";
                 return $exec->execute();
               
             }catch(PDOException $erro){
