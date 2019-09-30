@@ -72,5 +72,21 @@
                 echo $erro->getMessage();
             }
         }
+        function listarCampus(){
+            $resultado = "SELECT * FROM campus ORDER BY id ASC";
+            $resultado = DB::prepare($resultado);
+            $resultado->execute();
+            if($resultado->rowCount()>0){
+                while($dados = $resultado->fetch(PDO::FETCH_ASSOC)){
+                    $result[] = array(
+                        'nome' => $dados['nome'],
+                        'endereco' => $dados['endereco'],
+                        'id' => $dados['id'],
+                    );
+                }
+                return $result;
+            }
+       
+        }
     }
 ?>

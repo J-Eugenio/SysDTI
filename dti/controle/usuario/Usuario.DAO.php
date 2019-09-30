@@ -100,5 +100,20 @@
                echo "ERRO NO LOGIN ";
            }
         }
+        function listarUsuarios(){
+            $resultado = "SELECT * FROM usuario ORDER BY id ASC";
+            $resultado = DB::prepare($resultado);
+            $resultado->execute();
+            while($dados = $resultado->fetch(PDO::FETCH_ASSOC)){
+                $result[] = array(
+                    'id' => $dados['id'],
+                    'nome' => $dados['nome'],
+                    'email' => $dados['email'],
+                    'login' => $dados['login']
+                );
+            }
+
+            return $result;
+        }
     }
 ?>

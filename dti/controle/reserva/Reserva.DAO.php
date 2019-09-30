@@ -75,5 +75,34 @@
                 echo $erro->getMessage();
             }
         }
+        public function ListarReservas(){
+                $resultado = "SELECT r.*, camp.`nome` AS campus, equip.`nome` AS equipamento, 
+            salaP.`nome` AS sala FROM reserva AS r 
+            INNER JOIN `campus` AS camp 
+            INNER JOIN salas AS salaP
+            INNER JOIN equipamento AS equip 
+            ON r.`idCampus`=camp.`id` 
+            AND r.`idEquipamento`=equip.`id` 
+            AND r.`idSala`=salaP.`id` 
+            ORDER BY id ASC
+            ";
+
+            $resultado = DB::prepare($resultado);
+            $resultado->execute();
+            if($resultado->rowCount()>0){
+                while($dados = $resultado->fetch(PDO::FETCH_ASSOC)){
+                    $result[] = array(
+                        'horario' => $dados['horario'],
+                        'campus' => $dados['campus'],
+                        'turno' => $dados['turno'],
+                        'sala' => $dados['sala'],
+                        'horario' => $dados['horario'],
+                        'id' => $dados['id'],
+                    );
+                }
+                return $result;
+            }
+
+        }
     }
 ?>
